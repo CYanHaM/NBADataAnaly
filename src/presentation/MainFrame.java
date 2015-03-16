@@ -21,7 +21,7 @@ public class MainFrame extends JFrame{
 	boolean isDraging;
 
 	public MainFrame(){
-		//定义整个
+		//定义整个界面大小
 		this.setLayout(null);
 		this.setTitle("CYan HaM");
 		this.setSize(LGFRAME_WIDTH, LGFRAME_HEIGHT);
