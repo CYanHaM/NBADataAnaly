@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class MatchPojo implements Serializable{
+public class MatchPO implements Serializable{
 	
 	/**
 	 * 每场比赛的数据
@@ -19,7 +19,7 @@ public class MatchPojo implements Serializable{
 	private String score3;                                 //第三节比分
 	private String score4;                                 //第四节比分
 	private String scoreExtra;                             //加时赛比分
-	private ArrayList<PlayerDataMPojo> playerStatistic;    //球员技术统计
+	private ArrayList<PlayerDataMPO> playerStatistic;    //球员技术统计
 	
 	public String getSeason() {
 		return season;
@@ -81,10 +81,10 @@ public class MatchPojo implements Serializable{
 	public void setScoreExtra(String scoreExtra) {
 		this.scoreExtra = scoreExtra;
 	}
-	public ArrayList<PlayerDataMPojo> getPlayerStatistic() {
+	public ArrayList<PlayerDataMPO> getPlayerStatistic() {
 		return playerStatistic;
 	}
-	public void setPlayerStatistic(ArrayList<PlayerDataMPojo> playerStatistic) {
+	public void setPlayerStatistic(ArrayList<PlayerDataMPO> playerStatistic) {
 		this.playerStatistic = playerStatistic;
 	}
 	
