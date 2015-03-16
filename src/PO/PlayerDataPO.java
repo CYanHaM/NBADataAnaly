@@ -2,7 +2,7 @@ package PO;
 import java.io.Serializable;
 
 
-public class PlayerDataPojo implements Serializable{
+public class PlayerDataPO implements Serializable{
 	/**
 	 * 赛季球员总数据
 	 */
