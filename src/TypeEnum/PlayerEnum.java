@@ -6,6 +6,9 @@ public enum PlayerEnum {
 	position,//位置
 	height,//身高
 	weight,//体重
-	birth,
+	birth,//生日
+	age,//年龄
+	exp,//球龄
+	school;//毕业学校
 	
 }
