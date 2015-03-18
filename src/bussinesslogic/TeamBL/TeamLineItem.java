@@ -1,6 +1,6 @@
-package VO;
+package bussinesslogic.TeamBL;
 
-public class TeamVO {
+public class TeamLineItem {
 	public String fullName;            //球队全名
 	public String abbreviation;        //缩写
 	public String location;            //所在地

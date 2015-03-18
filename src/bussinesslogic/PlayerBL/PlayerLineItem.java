@@ -1,6 +1,6 @@
-package VO;
+package bussinesslogic.PlayerBL;
 
-public class PlayerVO {
+public class PlayerLineItem {
 	public String name;            //ĞÕÃû
 	public String uniformNum;      //ÇòÒÂºÅÂë
 	public String position;        //Î»ÖÃ
