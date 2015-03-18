@@ -1,6 +1,6 @@
-package VO;
+package bussinesslogic.TeamTech;
 
-public class TeamTechVO {
+public class TeamTechLineItem {
 	public String name;                            //球队名称
 	public String season;                          //赛季
 	public double gameNum;                         //比赛场数

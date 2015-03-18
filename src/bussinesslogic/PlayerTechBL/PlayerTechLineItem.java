@@ -1,6 +1,6 @@
-package VO;
+package bussinesslogic.PlayerTechBL;
 
-public class PlayerTechVO {
+public class PlayerTechLineItem {
 	public String name;                            //球员名称
 	public String season;                          //赛季
 	public String team;                            //所属球队

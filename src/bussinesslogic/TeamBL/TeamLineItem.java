@@ -1,12 +1,6 @@
-package PO;
-import java.io.Serializable;
+package bussinesslogic.TeamBL;
 
-
-public class TeamPO implements Serializable{
-	/**
-	 * 球队基本信息
-	 */
-	public static final long serialVersionUID = 1L;
+public class TeamLineItem {
 	public String fullName;            //球队全名
 	public String abbreviation;        //缩写
 	public String location;            //所在地
@@ -14,7 +8,4 @@ public class TeamPO implements Serializable{
 	public String partition;           //分区
 	public String homeCourt;           //主场
 	public String time;                //建立时间
-	
-	
-
 }
