@@ -1,6 +1,6 @@
-package presentation;
+package presentation.mainui;
 
-
+import presentation.teamui.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -10,21 +10,32 @@ import javax.swing.*;
 import com.sun.awt.AWTUtilities;
 
 public class MainFrame extends JFrame{
+	/**
+	 * 系统主界面，包括界面大小，布局方式，鼠标点击拖动事件
+	 * @author blisscry
+	 * @date 2015年3月18日18:51:30
+	 * @version 1
+	 */
 
+	private static final long serialVersionUID = 1L;
 	//定义主框架大小
-	public final int LGFRAME_WIDTH=870;
-	public final int LGFRAME_HEIGHT=590;
+	public static int FRAME_WIDTH=1020;
+	public static int FRAME_HEIGHT=670;
 	//定义鼠标坐标位置
 	int X;
 	int Y;
 	//判断是否在拖动界面
 	boolean isDraging;
 
+	JButton MINIMIZE;
+	JButton CLOSE;
+	JFrame Frame;
+
 	public MainFrame(){
 		//定义整个界面大小
 		this.setLayout(null);
 		this.setTitle("CYan HaM");
-		this.setSize(LGFRAME_WIDTH, LGFRAME_HEIGHT);
+		this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		this.setResizable(false);
 		//不显示windows自带边框
 		this.setUndecorated(true);
@@ -32,6 +43,8 @@ public class MainFrame extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
+		
+		Frame=this;
 
 		//窗体透明（此处引用了com.sun.awt.AWTUtilities，需引包）
 		AWTUtilities.setWindowOpaque(this, false);
@@ -57,11 +70,21 @@ public class MainFrame extends JFrame{
 				}
 			}});
 		
+		
+		MainPanel mp=new MainPanel(this,FRAME_WIDTH,FRAME_HEIGHT);
+		this.add(mp);
+		this.repaint();
 	}
+	
 
 
 	public static void main(String[] args){
-		new MainFrame();
+		MainFrame mainframe=new MainFrame();
+		TeamdataPanel td=new TeamdataPanel();
+//		mainframe.getContentPane().removeAll();
+		mainframe.add(td);
+		mainframe.repaint();
 	}
-	
+
 }
+
