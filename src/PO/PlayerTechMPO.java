@@ -1,7 +1,7 @@
 package PO;
 import java.io.Serializable;
 
-public class PlayerDataMPO implements Serializable{
+public class PlayerTechMPO implements Serializable{
 	
 	/**
 	 *每场比赛球员技术统计 

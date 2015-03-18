@@ -19,7 +19,7 @@ public class MatchPO implements Serializable{
 	public String score3;                                 //第三节比分
 	public String score4;                                 //第四节比分
 	public String scoreExtra;                             //加时赛比分
-	public ArrayList<PlayerDataMPO> playerStatistic;    //球员技术统计
+	public ArrayList<PlayerTechMPO> playerStatistic;    //球员技术统计
 	
 	
 	
