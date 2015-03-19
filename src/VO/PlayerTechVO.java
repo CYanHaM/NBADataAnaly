@@ -9,10 +9,10 @@ public class PlayerTechVO {
 	public double shotInRate;                      //投篮命中率
 	public double threeShotInRate;                 //三分命中率
 	public double penaltyShotInRate;               //罚球命中率
-	public double effiency;                        //效率
-	public double GmScEffiency;                    //GmSc效率值
+	public double efficiency;                        //效率
+	public double GmScEfficiency;                    //GmSc效率值
 	public double trueShotInRate;                  //真实命中率
-	public double shootingEffiency;                //投篮效率
+	public double shootingEfficiency;                //投篮效率
 	public double reboundRate;                     //篮板率
 	public double offensiveReboundRate;            //进攻篮板率
 	public double defensiveReboundRate;            //防守篮板率
