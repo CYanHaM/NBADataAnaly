@@ -4,8 +4,8 @@ public class PlayerTechVO {
 	public String name;                            //球员名称
 	public String season;                          //赛季
 	public String team;                            //所属球队
-	public double gameNum;                         //参赛场数
-	public double startingNum;                     //先发场数
+	public int gameNum;                         //参赛场数
+	public int startingNum;                     //先发场数
 	public double shotInRate;                      //投篮命中率
 	public double threeShotInRate;                 //三分命中率
 	public double penaltyShotInRate;               //罚球命中率
@@ -24,16 +24,16 @@ public class PlayerTechVO {
 	
 	//以下是赛季总数据
 	
-	public double offensiveNum;                    //进攻数
-	public double defensiveNum;                    //防守数
-	public double steal;                           //抢断数
-	public double blockShot;                       //盖帽数
-	public double fault;                           //失误数
-	public double foul;                            //犯规数
-	public double score;                           //得分
-	public double rebound;                         //篮板数
-	public double secondaryAttack;                 //助攻数
-	public double time;                            //在场时间
+	public int offensiveNum;                    //进攻数
+	public int defensiveNum;                    //防守数
+	public int steal;                           //抢断数
+	public int blockShot;                       //盖帽数
+	public int fault;                           //失误数
+	public int foul;                            //犯规数
+	public int score;                           //得分
+	public int rebound;                         //篮板数
+	public int secondaryAttack;                 //助攻数
+	public int time;                            //在场时间
 	
 	//以下是场均数据
 	
