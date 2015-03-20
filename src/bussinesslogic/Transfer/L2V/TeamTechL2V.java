@@ -52,6 +52,8 @@ public class TeamTechL2V {
 		ttvo.foulave = ttli.foulave;
 		ttvo.scoreave = ttli.scoreave;
 		ttvo.offensiveRoundave = ttli.reboundave;
+		
+		ttvo.winningNum = ttli.winningNum;
 		return ttvo;
 	}
 }

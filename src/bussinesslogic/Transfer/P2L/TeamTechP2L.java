@@ -51,6 +51,8 @@ public class TeamTechP2L {
 		ttli.foulave = ttli.foul/82;
 		ttli.scoreave = ttli.score/82;
 		ttli.offensiveRoundave = ttli.offensiveRound/82;
+		
+		ttli.winningNum = ttpo.winningNum;
 		return ttli;
 	}
 }
