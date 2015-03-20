@@ -48,7 +48,7 @@ public class Player implements PlayerBLservice{
 		PlayerPO ppo = L2P.l2p(temppli);
 		PlayerPO resultpo = new PlayerPO();
 		resultpo = pdservice.find(ppo);
-		PlayerLineItem pli = P2L.p2l(ppo);
+		PlayerLineItem pli = P2L.p2l(resultpo);
 		PlayerVO result = L2V.l2v(pli);
 
 		return result;
