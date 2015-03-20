@@ -1,5 +1,7 @@
 package blservice;
 
-public interface TeamBLservice {
+import VO.TeamVO;
 
+public interface TeamBLservice {
+	public TeamVO Show(TeamVO tvo);
 }
