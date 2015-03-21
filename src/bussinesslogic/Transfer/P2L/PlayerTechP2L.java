@@ -5,7 +5,7 @@ import bussinesslogic.PlayerTechBL.PlayerTechLineItem;
 
 public class PlayerTechP2L {
 	PlayerTechLineItem ptli = new PlayerTechLineItem();
-	public PlayerTechLineItem l2p(PlayerTechPO ptpo){
+	public PlayerTechLineItem p2l(PlayerTechPO ptpo){
 		ptli.name = (ptpo.name==null) ? null : ptpo.name;
 		ptli.season = (ptpo.season==null) ? null : ptpo.season;
 		ptli.team = (ptpo.team==null) ? null : ptpo.team;

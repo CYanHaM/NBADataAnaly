@@ -34,6 +34,8 @@ public class TeamTechL2P {
 		ttpo.reboundEfficiency = ttli.reboundEfficiency;
 		ttpo.stealEfficiency = ttli.stealEfficiency;
 		ttpo.secondaryAttackEfficiency = ttli.secondaryAttackEfficiency;
+		
+		ttpo.winningNum = ttli.winningNum;
 		return ttpo;
 	}
 }

@@ -13,6 +13,7 @@ public class TeamTechVO {
 	public double reboundEfficiency;                 //篮板效率
 	public double stealEfficiency;                   //抢断效率
 	public double secondaryAttackEfficiency;         //助攻效率
+	public int winningNum;                      //胜场数
 	
 	//以下是总数据
 	

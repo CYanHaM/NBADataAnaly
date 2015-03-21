@@ -5,7 +5,7 @@ import bussinesslogic.PlayerBL.PlayerLineItem;
 
 public class PlayerV2L {
 	PlayerLineItem plt = new PlayerLineItem();
-	public PlayerLineItem V2L (PlayerVO pvo){
+	public PlayerLineItem v2l (PlayerVO pvo){
 		plt.name = (pvo.name==null) ? null : pvo.name;
 		plt.uniformNum = pvo.uniformNum;
 		plt.position = (pvo.position==null) ? null : pvo.position;
