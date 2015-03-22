@@ -1,8 +1,12 @@
 package bussinesslogic.PlayerTechBL;
 
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import PO.PlayerTechPO;
+import Rmi.LinkPlayerTechService;
 import TypeEnum.PlayerTechEnum;
 import VO.PlayerTechVO;
 import blservice.PlayerTechBLservice;
@@ -10,14 +14,12 @@ import bussinesslogic.Transfer.L2P.PlayerTechL2P;
 import bussinesslogic.Transfer.L2V.PlayerTechL2V;
 import bussinesslogic.Transfer.P2L.PlayerTechP2L;
 import bussinesslogic.Transfer.V2L.PlayerTechV2L;
-import dataservice.PlayerTechDataService;
 
 public class PlayerTech implements PlayerTechBLservice{
-    PlayerTechDataService ptdataservice;
-	/*
-	 * 	public Account(){
+    LinkPlayerTechService ptdataservice;
+ 	public PlayerTech(){
 		try {
-			las=new LinkAccountService();
+			ptdataservice=new LinkPlayerTechService();
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -28,7 +30,7 @@ public class PlayerTech implements PlayerTechBLservice{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
 	@Override
 	public ArrayList<PlayerTechVO> Ascend(PlayerTechEnum DataType) {
