@@ -1,20 +1,23 @@
 package bussinesslogic.TeamBL;
 
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
 import PO.TeamPO;
+import Rmi.LinkTeamService;
 import VO.TeamVO;
 import blservice.TeamBLservice;
 import bussinesslogic.Transfer.L2P.TeamL2P;
 import bussinesslogic.Transfer.L2V.TeamL2V;
 import bussinesslogic.Transfer.P2L.TeamP2L;
 import bussinesslogic.Transfer.V2L.TeamV2L;
-import dataservice.TeamDataService;
 
 public class Team implements TeamBLservice{
-	TeamDataService tdservice;
-	/*
-	 * 	public Account(){
+	LinkTeamService tdservice;
+	public Team(){
 		try {
-			las=new LinkAccountService();
+			tdservice=new LinkTeamService();
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -25,7 +28,8 @@ public class Team implements TeamBLservice{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}*/
+	}
+	
 	@Override
 	public TeamVO Show(TeamVO tvo) {
 		// TODO Auto-generated method stub
