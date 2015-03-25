@@ -57,14 +57,14 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 	public ImportData importdata;
 	public ArrayList<TeamTechVO> initial_data;
 	
-	public int TableColumn=0;
+	public int HeaderColumn=0;
 
 	public TeamTechPanel(int WIDTH,int HEIGHT){
 		this.setSize(WIDTH,HEIGHT);
 		this.setLayout(null);
 		//创建颜色预设对象
 		TDPre=new TeamDataPre();
-		importdata=new ImportData();
+//		importdata=new ImportData();
 //		initial_data=importdata.getTeamTechAscend(TeamTechEnum.name);
 
 		//teaminfo=new Object[initial_data.size()][columnName.length];
@@ -233,8 +233,11 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		//添加table表头点击事件
 		teamtable.getTableHeader().addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e){
-				TableColumn=teamtable.columnAtPoint(e.getPoint());
-				setTableHeaderColor(teamtable, TableColumn, TDPre.getTableSelBg());
+				HeaderColumn=teamtable.columnAtPoint(e.getPoint());
+				teamtable.getTableHeader().setBackground(TDPre.getTableSelBg());
+//				TableColumn column=teamtable.getTableHeader().getColumnModel().getColumn(HeaderColumn);
+//				column.setHeaderRenderer();
+				setTableHeaderColor(teamtable, HeaderColumn, TDPre.getTableSelBg());
 			}
 		});
 		
@@ -252,7 +255,9 @@ public class TeamTechPanel extends JPanel implements ActionListener{
             {
                 JComponent comp = (JComponent) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                 comp.setBackground(c);
-                comp.setBorder(BorderFactory.createRaisedBevelBorder());               
+                comp.setBorder(null);   
+                comp.setOpaque(false);
+                comp.setForeground(TDPre.getOddTableLine());
                 return comp;
             }
         };
