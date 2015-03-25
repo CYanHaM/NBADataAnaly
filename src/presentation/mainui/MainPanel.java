@@ -8,8 +8,8 @@ public class MainPanel extends JPanel{
 	/**
 	 * 主界面最小化及关闭按钮以及背景设置
 	 * @author blisscry
-	 * @date 2015年3月18日19:08:27
-	 * @version 1
+	 * @date 2015年3月20日21:00:56
+	 * @version 1.3
 	 */
 	private static final long serialVersionUID = 1L;
 	

@@ -1,6 +1,7 @@
 package presentation.mainui;
 
 import presentation.teamui.*;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -14,7 +15,7 @@ public class MainFrame extends JFrame{
 	 * 系统主界面，包括界面大小，布局方式，鼠标点击拖动事件
 	 * @author blisscry
 	 * @date 2015年3月18日18:51:30
-	 * @version 1
+	 * @version 1.2
 	 */
 
 	private static final long serialVersionUID = 1L;
@@ -43,7 +44,7 @@ public class MainFrame extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
-		
+
 		Frame=this;
 
 		//窗体透明（此处引用了com.sun.awt.AWTUtilities，需引包）
@@ -69,19 +70,26 @@ public class MainFrame extends JFrame{
 					setLocation(frame_x+e.getX()-X, frame_y+e.getY()-Y);
 				}
 			}});
-		
-		
+
+
 		MainPanel mp=new MainPanel(this,FRAME_WIDTH,FRAME_HEIGHT);
 		this.add(mp);
 		this.repaint();
 	}
-	
+
 
 
 	public static void main(String[] args){
+
+		//加载系统界面
+		try {
+			// 将LookAndFeel设置成Windows样式
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		MainFrame mainframe=new MainFrame();
-		TeamdataPanel td=new TeamdataPanel();
-//		mainframe.getContentPane().removeAll();
+		TeamTechPanel td=new TeamTechPanel(FRAME_WIDTH, FRAME_HEIGHT);
 		mainframe.add(td);
 		mainframe.repaint();
 	}

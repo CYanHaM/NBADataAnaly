@@ -1,5 +1,5 @@
 package presentation.playerui;
 
-public class PlayerdataPanel {
+public class PlayerTechPanel {
 
 }
