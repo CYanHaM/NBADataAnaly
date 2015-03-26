@@ -1,9 +1,5 @@
 package bussinesslogic.TeamBL;
 
-import java.net.MalformedURLException;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
-
 import PO.TeamPO;
 import Rmi.LinkTeamService;
 import VO.TeamVO;
@@ -16,18 +12,7 @@ import bussinesslogic.Transfer.V2L.TeamV2L;
 public class Team implements TeamBLservice{
 	LinkTeamService tdservice;
 	public Team(){
-		try {
 			tdservice=new LinkTeamService();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	@Override

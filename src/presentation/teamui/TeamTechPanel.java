@@ -49,6 +49,8 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 			"篮板数","助攻数","抢断数","盖帽数","失误数","犯规数","比赛得分",
 			"投篮命中率","三分命中率","罚球命中率","胜率","进攻回合",
 			"进攻效率","防守效率","篮板效率","抢断效率","助攻效率"};
+//	
+//	private String[] columnName={"","","","","","","","","","","","","","","",""};
 	//总数据与场均数据切换下拉框
 	private JComboBox<String> switchbox;
 
@@ -186,6 +188,7 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 
 	//表格配置
 	public void table_config(Object[][] teamtech){
+		//------------------------------表格基本属性--------------------------
 		//表格属性设置
 		teamtable=new JTable(teamtech, columnName){
 			private static final long serialVersionUID = 1L;
@@ -229,18 +232,27 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		teamtable.setRowHeight(LINEHEIGHT);
 		//设置选中颜色
 		teamtable.setSelectionBackground(TDPre.getLineSelected());
-
+		//-----------------------------------------------------------------
+		
+		
 		//添加table表头点击事件
 		teamtable.getTableHeader().addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e){
 				HeaderColumn=teamtable.columnAtPoint(e.getPoint());
-				teamtable.getTableHeader().setBackground(TDPre.getTableSelBg());
+//				teamtable.getTableHeader().setBackground(TDPre.getTableSelBg());
+//				teamtable.setColumnSelectionAllowed(true);
+//                teamtable.setRowSelectionAllowed(false);
+                teamtable.setColumnSelectionInterval(HeaderColumn, HeaderColumn);
 //				TableColumn column=teamtable.getTableHeader().getColumnModel().getColumn(HeaderColumn);
 //				column.setHeaderRenderer();
-				setTableHeaderColor(teamtable, HeaderColumn, TDPre.getTableSelBg());
+//				setTableHeaderColor(teamtable, HeaderColumn, TDPre.getTableSelBg());
 			}
 		});
 		
+		teamtable.getTableHeader().setVisible(false);
+		DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();  
+        renderer.setPreferredSize(new Dimension(0, 0));  
+        teamtable.getTableHeader().setDefaultRenderer(renderer);  
 
 	}
 	

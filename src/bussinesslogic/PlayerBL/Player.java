@@ -1,8 +1,5 @@
 package bussinesslogic.PlayerBL;
 
-import java.net.MalformedURLException;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import PO.PlayerPO;
@@ -18,25 +15,13 @@ import bussinesslogic.Transfer.L2V.PlayerL2V;
 import bussinesslogic.Transfer.P2L.PlayerP2L;
 import bussinesslogic.Transfer.V2L.PlayerV2L;
 import bussinesslogic.Transfer.V2L.TeamV2L;
-import dataservice.PlayerDataService;
 
 public class Player implements PlayerBLservice{
 	
 	LinkPlayerService pdservice;
 	
  	public Player(){
-		try {
 			pdservice=new LinkPlayerService();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	@Override

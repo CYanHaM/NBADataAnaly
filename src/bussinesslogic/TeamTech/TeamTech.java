@@ -1,8 +1,5 @@
 package bussinesslogic.TeamTech;
 
-import java.net.MalformedURLException;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import PO.TeamTechPO;
@@ -17,18 +14,7 @@ public class TeamTech implements TeamTechBLservice{
 
 	LinkTeamTechService ttdataservice;
  	public TeamTech(){
-		try {
 			ttdataservice=new LinkTeamTechService();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	@Override
 	public ArrayList<TeamTechVO> Ascend(TeamTechEnum DataType) {

@@ -1,8 +1,5 @@
 package bussinesslogic.PlayerTechBL;
 
-import java.net.MalformedURLException;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import PO.PlayerTechPO;
@@ -18,18 +15,7 @@ import bussinesslogic.Transfer.V2L.PlayerTechV2L;
 public class PlayerTech implements PlayerTechBLservice{
     LinkPlayerTechService ptdataservice;
  	public PlayerTech(){
-		try {
 			ptdataservice=new LinkPlayerTechService();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	@Override

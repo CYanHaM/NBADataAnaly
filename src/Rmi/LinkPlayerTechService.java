@@ -15,21 +15,29 @@ import dataservice.PlayerTechDataService;
 public class LinkPlayerTechService {
 	/**
 	 * 开启客户端与服务端登录和账户管理接口的rmi类
-	 * @author weiao
-	 * @date 2014年12月21日20:13:45
-	 * @version 5
+	 * 并且所有需要抛出错误的地方均在RMI包中使用try-catch完成
+	 * @author 小乌龟
+	 * @mender blisscry
+	 * @date 2015年3月26日17:45:28
+	 * @version 1.2
 	 */
 	
 	//定义远程访问IP与端口，并有set与get方法
 	String host;
 	String port;
 	PlayerTechDataService playertechdata;
+	Remote remote;
 	
-	public LinkPlayerTechService() throws MalformedURLException, RemoteException, NotBoundException{
+	public LinkPlayerTechService(){
 		ServerURL server=new ServerURL();
 		host=server.getHost();
 		port=server.getPlayerTechPort();
-		Remote remote=Naming.lookup("//"+host+":"+port+"/PlayerTechData");
+		try {
+			remote = Naming.lookup("//"+host+":"+port+"/PlayerTechData");
+		} catch (MalformedURLException | RemoteException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if (remote instanceof PlayerTechDataService) {
 			playertechdata = (PlayerTechDataService) remote;
 		}
