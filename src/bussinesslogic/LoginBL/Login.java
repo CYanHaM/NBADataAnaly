@@ -15,11 +15,11 @@ import TypeEnum.ResultMessage;
 public class Login implements LoginBLservice{
 	LinkTeamTechService ltts;
 	public Login(){
-			ltts=new LinkTeamTechService();
 	}
 	
-	public boolean login(String url) {
-		return false;
+	public void login(String url) {
+		setURL(url);
+		ltts=new LinkTeamTechService();
 	}
 	
 	
@@ -41,7 +41,7 @@ public class Login implements LoginBLservice{
 		if(urllist.size()>0){
 			return urllist.get(0);
 		}else{
-			return null;
+			return "本地无IP记录";
 		}
 	}
 

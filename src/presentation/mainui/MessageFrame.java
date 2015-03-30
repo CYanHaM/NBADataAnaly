@@ -28,7 +28,7 @@ public class MessageFrame extends JFrame{
 		boolean isDraging;
 
 		public MessageFrame(){
-			this.setTitle("HeNtaCY_MESSAGE");
+			this.setTitle("MESSAGE");
 			this.setSize(POPFRAME_WIDTH, POPFRAME_HEIGHT);
 			this.setResizable(false);
 			//不显示windows自带边框
@@ -61,5 +61,6 @@ public class MessageFrame extends JFrame{
 						setLocation(frame_x+e.getX()-X, frame_y+e.getY()-Y);
 					}
 				}});
+			
 		}
 }

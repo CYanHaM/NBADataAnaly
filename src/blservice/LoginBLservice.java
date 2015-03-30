@@ -8,11 +8,11 @@ public interface LoginBLservice {
 	 *@date 2015Äê3ÔÂ26ÈÕ17:48:41
 	 *@version 1.0
 	 */
-    public boolean login(String url);
+    public void login(String url);
 	
 //	public void logoff(String type);
 	
-	public void setURL(String url);
-	
 	public String getURL();
+	
+	public void setURL(String url);
 }

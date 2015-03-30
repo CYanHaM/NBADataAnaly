@@ -1,7 +1,5 @@
 package presentation.mainui;
 
-import presentation.teamui.*;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -88,10 +86,10 @@ public class MainFrame extends JFrame{
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		MainFrame mainframe=new MainFrame();
-		TeamTechPanel td=new TeamTechPanel(FRAME_WIDTH, FRAME_HEIGHT);
-		mainframe.add(td);
-		mainframe.repaint();
+		MessageFrame messageframe=new MessageFrame();
+		LoginMsgPanel loginmsgpanel=new LoginMsgPanel(messageframe);
+		messageframe.add(loginmsgpanel);
+		messageframe.repaint();
 	}
 
 }
