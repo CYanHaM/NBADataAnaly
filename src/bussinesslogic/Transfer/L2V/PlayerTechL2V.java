@@ -19,7 +19,7 @@ public class PlayerTechL2V {
 		ptvo.trueShotInRate = ptli.trueShotInRate;
 		ptvo.shootingEfficiency = ptli.shootingEfficiency;
 		ptvo.reboundRate = ptli.reboundRate;
-		ptvo.offensiveReboundRate = ptli.offensiveNum;
+		ptvo.offensiveReboundRate = ptli.offensiveReboundRate;
 		ptvo.defensiveReboundRate = ptli.defensiveReboundRate;
 		ptvo.secondaryAttackRate = ptli.secondaryAttackRate;
 		ptvo.stealRate = ptli.stealRate;

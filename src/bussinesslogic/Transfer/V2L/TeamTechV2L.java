@@ -5,13 +5,13 @@ import bussinesslogic.TeamTech.TeamTechLineItem;
 
 public class TeamTechV2L {
 	TeamTechLineItem ttli = new TeamTechLineItem();
-	public TeamTechLineItem l2v(TeamTechVO ttvo){
+	public TeamTechLineItem v2l(TeamTechVO ttvo){
 		ttli.name = (ttvo.name==null) ? null : ttvo.name;
 		ttli.season = (ttvo.season==null) ? null : ttvo.season;
 		ttli.gameNum = ttvo.gameNum;
 		ttli.shotInRate = ttvo.shotInRate;
-		ttli.threeShotInRate = ttvo.shotInRate;
-		ttli.penaltyShotInRate = ttvo.threeShotInRate;
+		ttli.threeShotInRate = ttvo.threeShotInRate;
+		ttli.penaltyShotInRate = ttvo.penaltyShotInRate;
 		ttli.winningRate = ttvo.winningRate;
 		ttli.offensiveEfficiency = ttvo.offensiveEfficiency;
 		ttli.defensiveEfficiency = ttvo.defensiveEfficiency;
@@ -51,7 +51,7 @@ public class TeamTechV2L {
 		ttli.faultave = ttvo.faultave;
 		ttli.foulave = ttvo.foulave;
 		ttli.scoreave = ttvo.scoreave;
-		ttli.offensiveRoundave = ttvo.reboundave;
+		ttli.offensiveRoundave = ttvo.offensiveRoundave;
 		
 		ttli.winningNum = ttvo.winningNum;
 		return ttli;

@@ -1,5 +1,6 @@
 package VO;
 
+
 public class TeamTechVO {
 	public String name;                            //球队名称
 	public String season;                          //赛季
@@ -52,4 +53,189 @@ public class TeamTechVO {
 	public double foulave;                            //犯规数
 	public double scoreave;                           //比赛得分
 	public double offensiveRoundave;                  //进攻回合
+	
+	public boolean equals(TeamTechVO ttvo){
+		if(!this.name.equals(ttvo.name)){
+			System.out.println("name");
+			return false;
+		}
+	    if(!this.season.equals(ttvo.season)){
+	    	System.out.println("season");
+	    	return false;
+	    }
+	    if(this.gameNum!=ttvo.gameNum){
+	    	System.out.println("gameNum");
+	    	return false;
+	    }
+	    if(this.shotInRate!=ttvo.shotInRate){
+	    	System.out.println("shotInRate");
+	    	return false;
+	    }
+	    if(this.threeShotInRate!=ttvo.threeShotInRate){
+	    	System.out.println("threeShotInRate");
+	    	return false;
+	    }
+	    if(this.penaltyShotInRate!=ttvo.penaltyShotInRate){
+	    	System.out.println("penaltyShotInRate");
+	    	return false;
+	    }
+	    if(this.winningRate!=ttvo.winningRate){
+	    	System.out.println("winningRate");
+	    	return false;
+	    }
+	    if(this.offensiveEfficiency!=ttvo.offensiveEfficiency){
+	    	System.out.println("offensiveEfficiency");
+	    	return false;
+	    }
+	    if(this.defensiveEfficiency!=ttvo.defensiveEfficiency){
+	    	System.out.println("defensiveEfficiency");
+	    	return false;
+	    }
+	    if(this.reboundEfficiency!=ttvo.reboundEfficiency){
+	    	System.out.println("reboundEfficiency");
+	    	return false;
+	    }
+	    if(this.stealEfficiency!=ttvo.stealEfficiency){
+	    	System.out.println("stealEfficiency");
+	    	return false;
+	    }
+	    if(this.secondaryAttackEfficiency!=ttvo.secondaryAttackEfficiency){
+	    	System.out.println("secondaryAttackEfficiency");
+	    	return false;
+	    }
+	    if(this.winningNum!=ttvo.winningNum){
+	    	System.out.println("winningNum");
+	    	return false;
+	    }
+	    if(this.shotInNum!=ttvo.shotInNum){
+	    	System.out.println("shotInNum");
+	    	return false;
+	    }
+	    if(this.shotNum!=ttvo.shotNum){
+	    	System.out.println("shotNum");
+	    	return false;
+	    }
+	    if(this.threeShotInNum!=ttvo.threeShotInNum){
+	    	System.out.println("threeShotInNum");
+	    	return false;
+	    }
+	    if(this.threeShotNum!=ttvo.threeShotNum){
+	    	System.out.println("threeShotNum");
+	    	return false;
+	    }
+	    if(this.penaltyShotInNum!=ttvo.penaltyShotInNum){
+	    	System.out.println("penaltyShotInNum");
+	    	return false;
+	    }
+	    if(this.penaltyShotNum!=ttvo.penaltyShotNum){
+	    	System.out.println("penaltyShotNum");
+	    	return false;
+	    }
+	    if(this.offensiveRebound!=ttvo.offensiveRebound){
+	    	System.out.println("offensiveRebound");
+	    	return false;
+	    }
+	    if(this.defensiveRebound!=ttvo.defensiveRebound){
+	    	System.out.println("defensiveRebound");
+	    	return false;
+	    }
+	    if(this.rebound!=ttvo.rebound){
+	    	System.out.println("rebound");
+	    	return false;
+	    }
+	    if(this.secondaryAttack!=ttvo.secondaryAttack){
+	    	System.out.println("TeamTech");
+	    	System.out.println("secondaryAttack");
+	    	return false;
+	    }
+	    if(this.steal!=ttvo.steal){
+	    	System.out.println("steal");
+	    	return false;
+	    }
+	    if(this.blockShot!=ttvo.blockShot){
+	    	System.out.println("blockShot");
+	    	return false;
+	    }
+	    if(this.fault!=ttvo.fault){
+	    	System.out.println("fault");
+	    	return false;
+	    }
+	    if(this.foul!=ttvo.foul){
+	    	System.out.println("foul");
+	    	return false;
+	    }
+	    if(this.score!=ttvo.score){
+	    	System.out.println("score");
+	    	return false;
+	    }
+	    if(this.offensiveRound!=ttvo.offensiveRound){
+	    	System.out.println("offensiveRound");
+	    	return false;
+	    }
+	    if(this.shotInNumave!=ttvo.shotInNumave){
+	    	System.out.println("shotInNumave");
+	    	return false;
+	    }
+	    if(this.shotNumave!=ttvo.shotNumave){
+	    	System.out.println("shotNumave");
+	    	return false;
+	    }
+	    if(this.threeShotInNumave!=ttvo.threeShotInNumave){
+	    	System.out.println("threeShotInNumave");
+	    	return false;
+	    }
+	    if(this.threeShotNumave!=ttvo.threeShotNumave){
+	    	System.out.println("threeShotNumave");
+	    	return false;
+	    }
+	    if(this.penaltyShotInNumave!=ttvo.penaltyShotInNumave){
+	    	System.out.println("penaltyShotInNumave");
+	    	return false;
+	    }
+	    if(this.penaltyShotNumave!=ttvo.penaltyShotNumave){
+	    	System.out.println("penaltyShotNumave");
+	    	return false;
+	    }
+	    if(this.offensiveReboundave!=ttvo.offensiveReboundave){
+	    	System.out.println("offensiveReboundave");
+	    	return false;
+	    }
+	    if(this.defensiveReboundave!=ttvo.defensiveReboundave){
+	    	System.out.println("defensiveReboundave");
+	    	return false;
+	    }
+	    if(this.reboundave!=ttvo.reboundave){
+	    	System.out.println("reboundave");
+	    	return false;
+	    }
+	    if(this.secondaryAttackave!=ttvo.secondaryAttackave){
+	    	System.out.println("secondaryAttackave");
+	    	return false;
+	    }
+	    if(this.stealave!=ttvo.stealave){
+	    	System.out.println("stealave");
+	    	return false;
+	    }
+	    if(this.blockShotave!=ttvo.blockShotave){
+	    	System.out.println("blockShotave");
+	    	return false;
+	    }
+	    if(this.faultave!=ttvo.faultave){
+	    	System.out.println("faultave");
+	    	return false;
+	    }
+	    if(this.foulave!=ttvo.foulave){
+	    	System.out.println("foulave");
+	    	return false;
+	    }
+	    if(this.scoreave!=ttvo.scoreave){
+	    	System.out.println("scoreave");
+	    	return false;
+	    }
+	    if(this.offensiveRoundave!=ttvo.offensiveRoundave){
+	    	System.out.println("offensiveRoundave");
+	    	return false;
+	    }
+	    return true;
+	}
 }

@@ -10,8 +10,8 @@ public class TeamTechL2V {
 		ttvo.season = (ttli.season==null) ? null : ttli.season;
 		ttvo.gameNum = ttli.gameNum;
 		ttvo.shotInRate = ttli.shotInRate;
-		ttvo.threeShotInRate = ttli.shotInRate;
-		ttvo.penaltyShotInRate = ttli.threeShotInRate;
+		ttvo.threeShotInRate = ttli.threeShotInRate;
+		ttvo.penaltyShotInRate = ttli.penaltyShotInRate;
 		ttvo.winningRate = ttli.winningRate;
 		ttvo.offensiveEfficiency = ttli.offensiveEfficiency;
 		ttvo.defensiveEfficiency = ttli.defensiveEfficiency;
@@ -51,7 +51,7 @@ public class TeamTechL2V {
 		ttvo.faultave = ttli.faultave;
 		ttvo.foulave = ttli.foulave;
 		ttvo.scoreave = ttli.scoreave;
-		ttvo.offensiveRoundave = ttli.reboundave;
+		ttvo.offensiveRoundave = ttli.offensiveRoundave;
 		
 		ttvo.winningNum = ttli.winningNum;
 		return ttvo;

@@ -14,7 +14,7 @@ public class PlayerV2L {
 		plt.birth = (pvo.birth==null) ? null : pvo.birth;
 		plt.age = pvo.age;
 		plt.exp = pvo.exp;
-		plt.school = (plt.school==null) ? null : pvo.school;
+		plt.school = (pvo.school==null) ? null : pvo.school;
 		return plt;
 	}
 }

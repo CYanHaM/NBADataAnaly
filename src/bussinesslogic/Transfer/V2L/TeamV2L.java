@@ -12,7 +12,7 @@ public class TeamV2L {
 		tli.division = (tvo.division==null) ? null : tvo.division;
 		tli.partition = (tvo.partition==null) ? null : tvo.partition;
 		tli.homeCourt = (tvo.homeCourt==null) ? null : tvo.homeCourt;
-		tli.time = (tli.time==null) ? null : tli.time;
+		tli.time = (tvo.time==null) ? null : tvo.time;
 		return tli;
 	}
 }
