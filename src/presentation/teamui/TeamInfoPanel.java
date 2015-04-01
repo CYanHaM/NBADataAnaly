@@ -25,6 +25,7 @@ public class TeamInfoPanel extends JPanel implements ActionListener{
 	private static int Button_width=113;
 	private static int Button_height=61;
 	
+	//东部联盟
 	private JButton ATL;
 	private JButton CHA;
 	private JButton MIA;
@@ -42,7 +43,7 @@ public class TeamInfoPanel extends JPanel implements ActionListener{
 	private JButton NYK;
 	private JButton PHI;
 	private JButton TOR;
-	
+	//西部联盟
 	private JButton GSW;
 	private JButton LAC;
 	private JButton LAL;
@@ -111,104 +112,110 @@ public class TeamInfoPanel extends JPanel implements ActionListener{
 	
 	public void addteamsbutton(){
 		
-		ATL=new JButton("老鹰");
+		ATL=new JButton("勇士");
 		ATL.setBounds(locx, locy, Button_width, Button_height);
-		button_config(ATL);
+		button_config(ATL,"ATL");
 		CHA=new JButton("黄蜂");
 		CHA.setBounds(locx, locy+13+Button_height, Button_width, Button_height);
-		button_config(CHA);
+		button_config(CHA,"CHA");
 		MIA=new JButton("热火");
 		MIA.setBounds(locx, locy+(13+Button_height)*2, Button_width, Button_height);
-		button_config(MIA);
+		button_config(MIA,"MIA");
 		ORL=new JButton("魔术");
 		ORL.setBounds(locx, locy+(13+Button_height)*3, Button_width, Button_height);
-		button_config(ORL);
+		button_config(ORL,"ORL");
 		WAS=new JButton("奇才");
 		WAS.setBounds(locx, locy+(13+Button_height)*4, Button_width, Button_height);
-		button_config(WAS);
+		button_config(WAS,"WAS");
 		
 		CHI=new JButton("公牛");
 		CHI.setBounds(locx+20+Button_width, locy, Button_width, Button_height);
-		button_config(CHI);
+		button_config(CHI,"CHI");
 		CLE=new JButton("骑士");
 		CLE.setBounds(locx+20+Button_width, locy+13+Button_height, Button_width, Button_height);
-		button_config(CLE);
+		button_config(CLE,"CLE");
 		DET=new JButton("活塞");
 		DET.setBounds(locx+20+Button_width, locy+(13+Button_height)*2, Button_width, Button_height);
-		button_config(DET);
+		button_config(DET,"DET");
 		IND=new JButton("步行者");
 		IND.setBounds(locx+20+Button_width, locy+(13+Button_height)*3, Button_width, Button_height);
-		button_config(IND);
+		button_config(IND,"IND");
 		MIL=new JButton("雄鹿");
 		MIL.setBounds(locx+20+Button_width, locy+(13+Button_height)*4, Button_width, Button_height);
-		button_config(MIL);
+		button_config(MIL,"MIL");
 		
 		BOS=new JButton("凯尔特人");
 		BOS.setBounds(locx+(20+Button_width)*2, locy, Button_width, Button_height);
-		button_config(BOS);
+		button_config(BOS,"BOS");
 		BKN=new JButton("篮网");
 		BKN.setBounds(locx+(20+Button_width)*2, locy+13+Button_height, Button_width, Button_height);
-		button_config(BKN);
+		button_config(BKN,"BKN");
 		NYK=new JButton("尼克斯");
 		NYK.setBounds(locx+(20+Button_width)*2, locy+(13+Button_height)*2, Button_width, Button_height);
-		button_config(NYK);
+		button_config(NYK,"NYK");
 		PHI=new JButton("76人");
 		PHI.setBounds(locx+(20+Button_width)*2, locy+(13+Button_height)*3, Button_width, Button_height);
-		button_config(PHI);
+		button_config(PHI,"PHI");
 		TOR=new JButton("猛龙");
 		TOR.setBounds(locx+(20+Button_width)*2, locy+(13+Button_height)*4, Button_width, Button_height);
-		button_config(TOR);
+		button_config(TOR,"TOR");
 		
 		GSW=new JButton("勇士");
 		GSW.setBounds(locx+(20+Button_width)*3, locy, Button_width, Button_height);
-		button_config(GSW);
+		button_config(GSW,"GSW");
 		LAC=new JButton("快船");
 		LAC.setBounds(locx+(20+Button_width)*3, locy+13+Button_height, Button_width, Button_height);
-		button_config(LAC);
+		button_config(LAC,"LAC");
 		LAL=new JButton("湖人");
 		LAL.setBounds(locx+(20+Button_width)*3, locy+(13+Button_height)*2, Button_width, Button_height);
-		button_config(LAL);
+		button_config(LAL,"LAL");
 		PHX=new JButton("太阳");
 		PHX.setBounds(locx+(20+Button_width)*3, locy+(13+Button_height)*3, Button_width, Button_height);
-		button_config(PHX);
+		button_config(PHX,"PHX");
 		SAC=new JButton("国王");
 		SAC.setBounds(locx+(20+Button_width)*3, locy+(13+Button_height)*4, Button_width, Button_height);
-		button_config(SAC);
+		button_config(SAC,"SAC");
 		
 		DEN=new JButton("掘金");
 		DEN.setBounds(locx+(20+Button_width)*4, locy, Button_width, Button_height);
-		button_config(DEN);
+		button_config(DEN,"DEN");
 		MIN=new JButton("森林狼");
 		MIN.setBounds(locx+(20+Button_width)*4, locy+13+Button_height, Button_width, Button_height);
-		button_config(MIN);
+		button_config(MIN,"MIN");
 		OKC=new JButton("雷霆");
 		OKC.setBounds(locx+(20+Button_width)*4, locy+(13+Button_height)*2, Button_width, Button_height);
-		button_config(OKC);
+		button_config(OKC,"OKC");
 		POR=new JButton("开拓者");
 		POR.setBounds(locx+(20+Button_width)*4, locy+(13+Button_height)*3, Button_width, Button_height);
-		button_config(POR);
+		button_config(POR,"POR");
 		UTA=new JButton("爵士");
 		UTA.setBounds(locx+(20+Button_width)*4, locy+(13+Button_height)*4, Button_width, Button_height);
-		button_config(UTA);
+		button_config(UTA,"UTA");
 		
 		DAL=new JButton("小牛");
 		DAL.setBounds(locx+(20+Button_width)*5, locy, Button_width, Button_height);
-		button_config(DAL);
+		button_config(DAL,"DAL");
 		HOU=new JButton("火箭");
 		HOU.setBounds(locx+(20+Button_width)*5, locy+13+Button_height, Button_width, Button_height);
-		button_config(HOU);
+		button_config(HOU,"HOU");
 		MEM=new JButton("灰熊");
 		MEM.setBounds(locx+(20+Button_width)*5, locy+(13+Button_height)*2, Button_width, Button_height);
-		button_config(MEM);
+		button_config(MEM,"MEM");
 		NOP=new JButton("鹈鹕");
 		NOP.setBounds(locx+(20+Button_width)*5, locy+(13+Button_height)*3, Button_width, Button_height);
-		button_config(NOP);
+		button_config(NOP,"NOP");
 		SAS=new JButton("马刺");
 		SAS.setBounds(locx+(20+Button_width)*5, locy+(13+Button_height)*4, Button_width, Button_height);
-		button_config(SAS);
+		button_config(SAS,"SAS");
 	}
 	
-	public void button_config(JButton button){
+	public void button_config(JButton button,String name){
+		button.setIcon(new ImageIcon("images/teams/small/"+name+".png"));
+		button.setBorderPainted(false);
+		button.setContentAreaFilled(false);
+		button.setFocusPainted(false);
+//		button.setRolloverIcon(new ImageIcon("images/teams/small/"+name+".png"));
+//		button.setPressedIcon(new ImageIcon("images/teams/small/"+name+".png"));
 		this.add(button);
 		button.addActionListener(this);
 	}
@@ -232,6 +239,14 @@ public class TeamInfoPanel extends JPanel implements ActionListener{
 			Frame.remove(this);
 			PlayerTechPanel ptp=new PlayerTechPanel(Frame);
 			Frame.add(ptp);
+			Frame.repaint();
+		}
+		if(arg0.getSource()==ATL){
+			Frame.remove(this);
+			TeamVO tvo=new TeamVO();
+			tvo.abbreviation="ATL";
+			TeamPanel tp=new TeamPanel(tvo,Frame);
+			Frame.add(tp);
 			Frame.repaint();
 		}
 		if(arg0.getSource()==ATL){

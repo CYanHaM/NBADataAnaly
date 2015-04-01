@@ -87,13 +87,13 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		this.setOpaque(false);
 		//创建颜色预设对象
 		TTPre=new TeamTechPre();
-//		importdata=new ImportTeam();
-		//initial_data=importdata.getTeamTechDescend(TeamTechEnum.name);
+		importdata=new ImportTeam();
+		initial_data=importdata.getTeamTechDescend(TeamTechEnum.name);
 
-		//teaminfo=new Object[initial_data.size()][columnName.length];
-		teaminfo=new Object[TEAMNUM][columnName.length];
+		teaminfo=new Object[initial_data.size()][columnName.length];
+//		teaminfo=new Object[TEAMNUM][columnName.length];
 		//加载初始表格，显示队伍总数据
-		//handleTotalData(initial_data);
+		handleTotalData(initial_data);
 
 		table_config();
 

@@ -18,6 +18,7 @@ import javax.swing.table.TableColumnModel;
 
 import VO.TeamVO;
 import presentation.Preset.PlayerPre;
+import presentation.playerui.PlayerTechPanel;
 
 public class TeamPanel extends JPanel implements ActionListener{
 	/**
@@ -48,6 +49,7 @@ public class TeamPanel extends JPanel implements ActionListener{
 	private String[] columnName={
 			"姓名","球衣号码","位置","身高(英尺-英寸)","体重(磅)","生日(月 日,年)","年龄","球龄","毕业学校"};
 	
+	private JLabel Icon;                //球队图片
 	private JLabel fullName;            //球队全名
 	private JLabel abbreviation;        //缩写
 	private JLabel location;            //所在地
@@ -66,29 +68,32 @@ public class TeamPanel extends JPanel implements ActionListener{
 	private JButton TeamTech;
 	private JButton PlayerTech;
 	private JButton TeamData;
-	private JButton PlayerData;
+//	private JButton PlayerData;
+	
+	private JButton back;
 	
 	ImportTeam importdata;
 	public PlayerPre PPre;
 	public JFrame Frame;
 	public TeamVO teamvo;
 	public TeamPanel(TeamVO tvo,JFrame frame){
-		teamvo=new TeamVO();
-		teamvo.fullName="Adsj csacsaw";
-		teamvo.abbreviation="ADS";
-		teamvo.location="Losangles";
-		teamvo.division="north";
-		teamvo.partition="cewvdv";
-		teamvo.homeCourt="csaacs";
-		teamvo.time="1992/2/1";
+		
+//		teamvo=new TeamVO();
+//		teamvo.fullName="Adsj csacsaw";
+//		teamvo.abbreviation="SAS";
+//		teamvo.location="Losangles";
+//		teamvo.division="north";
+//		teamvo.partition="cewvdv";
+//		teamvo.homeCourt="csaacs";
+//		teamvo.time="1992/2/1";
 		
 		Frame=frame;
 		this.setSize(WIDTH,HEIGHT);
 		this.setLayout(null);
 		//创建颜色预设对象
 		PPre=new PlayerPre();
-//		importdata=new ImportTeam();
-//		teamvo=importdata.getTeamVO(tvo);
+		importdata=new ImportTeam();
+		teamvo=importdata.getTeamVO(tvo);
 		
 		playerinfo=new Object[20][columnName.length];
 		scrollpane_config();
@@ -109,7 +114,7 @@ public class TeamPanel extends JPanel implements ActionListener{
 		TeamTech.setPressedIcon(new ImageIcon("images/buttons/teamtech/TeamTech_pressed.png"));
 		TeamTech.addActionListener(this);
 		
-		PlayerTech=new JButton(new ImageIcon("images/buttons/playertech/PlayerTech_selected.png"));
+		PlayerTech=new JButton(new ImageIcon("images/buttons/playertech/PlayerTech_initial.png"));
 		PlayerTech.setBounds(26, 185, 148, 40);
 		PlayerTech.setBorderPainted(false);
 		PlayerTech.setContentAreaFilled(false);
@@ -118,7 +123,7 @@ public class TeamPanel extends JPanel implements ActionListener{
 		PlayerTech.setPressedIcon(new ImageIcon("images/buttons/playertech/PlayerTech_pressed.png"));
 		PlayerTech.addActionListener(this);
 		
-		TeamData=new JButton(new ImageIcon("images/buttons/team/Team_initial.png"));
+		TeamData=new JButton(new ImageIcon("images/buttons/team/Team_selected.png"));
 		TeamData.setBounds(26, 225, 148, 40);
 		TeamData.setBorderPainted(false);
 		TeamData.setContentAreaFilled(false);
@@ -130,20 +135,23 @@ public class TeamPanel extends JPanel implements ActionListener{
 		this.repaint();
 	}
 	
+	//定义所有显示及渲染球队信息的lablel
 	private void addlabel(){
+		Icon=new JLabel(new ImageIcon("images/teams/"+teamvo.abbreviation+".png"));
+		Icon.setBounds(210, 135, 300, 200);
+		
 		fullName=new JLabel(teamvo.fullName);
 		fullName.setBounds(543, 145, 200, 20);
 		fullName.setForeground(PPre.label);
-		fullName.setFont(PPre.fullName);            //此处字体需要修改！！
+		fullName.setFont(PPre.fullName);           
 		
-		line=new JLabel();
-		line.setBounds(543, 200, 155, 5);
-		line.setIcon(new ImageIcon("images/teams/line.png"));
+		line=new JLabel(new ImageIcon("images/teams/line.png"));
+		line.setBounds(543, 165, 155, 5);
 		
 		abbreviation=new JLabel(teamvo.abbreviation);
 		abbreviation.setBounds(545, 170, 200, 15);
 		abbreviation.setForeground(PPre.label);
-		abbreviation.setFont(PPre.abbreviation);        //此处字体需要修改！！
+		abbreviation.setFont(PPre.abbreviation);   
 		
 		location=new JLabel("所在地:");
 		location.setBounds(545, 190, 200, 15);
@@ -204,6 +212,7 @@ public class TeamPanel extends JPanel implements ActionListener{
 		this.add(time_con);
 		
 		this.add(line);
+		this.add(Icon);
 		
 	}
 	//表格配置
@@ -343,7 +352,18 @@ public class TeamPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-
+		if(arg0.getSource()==TeamTech){
+			Frame.remove(this);
+			TeamTechPanel ttp=new TeamTechPanel(Frame);
+			Frame.add(ttp);
+			Frame.repaint();
+		}
+		if(arg0.getSource()==PlayerTech){
+			Frame.remove(this);
+			PlayerTechPanel ptp=new PlayerTechPanel(Frame);
+			Frame.add(ptp);
+			Frame.repaint();
+		}
 	}
 
 

@@ -71,10 +71,13 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 	
 	private JComboBox<String> positionbox;
 	private String[] positionItem={"球员位置","前锋","中锋","后卫"};
+	private String[] positionstring={"F","C","G"};
 	private JComboBox<String> divisionbox;
 	private String[] divisionItem={"球员联盟","东部","西部"};
+	private String[] divisionstring={"E","W"};
 	private JComboBox<String> ordergistbox;
 	private String[] ordergistItem={"排序依据","得分","篮板","助攻","得分/篮板/助攻","盖帽","抢断","犯规","失误","分钟","效率","投篮","三分","罚球","两双"};
+	private String[] ordergiststring={"score","rebound","secondaryattack","srs","blockshot","steal","foul","fault","time","efficiency","shot","threeshot","penaltyshot","doubledouble"};
 	//排序方式单选按钮组
 	private JRadioButton order_Asc;
 	private JRadioButton order_Des;
@@ -106,16 +109,17 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		PTPre=new PlayerTechPre();
 		init();
 		
+		
 	}
 	
 	public void init(){
-//		importdata=new ImportPlayer();
-		//initial_data=importdata.getPlayerTechDescend(PlayerTechEnum.name);
+		importdata=new ImportPlayer();
+		initial_data=importdata.getPlayerTechDescend(PlayerTechEnum.name);
 
-		//playerinfo=new Object[initial_data.size()][columnName.length];
-		playerinfo=new Object[PLAYERNUM][columnName.length];
+		playerinfo=new Object[initial_data.size()][columnName.length];
+//		playerinfo=new Object[PLAYERNUM][columnName.length];
 		//加载初始表格，显示队伍总数据
-		//handleTotalData(initial_data);
+		handleTotalData(initial_data);
 
 		//加载表格配置
 		table_config();
@@ -720,11 +724,14 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 			String positionsel=(String)positionbox.getSelectedItem();
 			String divisionsel=(String)divisionbox.getSelectedItem();
 			String ordergistsel=(String)ordergistbox.getSelectedItem();
+			int positionnum=positionbox.getSelectedIndex();
+			int divisionnum=divisionbox.getSelectedIndex();
+			int ordergistnum=ordergistbox.getSelectedIndex();
 			
 			if(!positionsel.equals(positionItem[0])&&
 					!divisionsel.equals(divisionItem[0])&&
 					!ordergistsel.equals(ordergistItem[0])){
-				ArrayList<PlayerTechVO> siftVO = importdata.sift(positionsel, divisionsel, ordergistsel);
+				ArrayList<PlayerTechVO> siftVO = importdata.sift(positionstring[positionnum-1], divisionstring[divisionnum-1], ordergiststring[ordergistnum-1]);
 				playerinfo=new Object[siftVO.size()][columnName.length];
 				String switchboxsel=(String) switchbox.getSelectedItem();
 				if(switchboxsel.equals("赛季总数据")){
