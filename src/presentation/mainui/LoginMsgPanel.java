@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import presentation.playerui.PlayerTechPanel;
+import presentation.playerui.PlayerInfoPanel;
 import presentation.teamui.TeamTechPanel;
 import blservice.LoginBLservice;
 import bussinesslogic.LoginBL.Login;
@@ -99,7 +101,9 @@ public class LoginMsgPanel extends JPanel implements ActionListener{
 			}else{
 				lbs.setURL(newURL);
 				MainFrame mf=new MainFrame();
-				TeamTechPanel ttp=new TeamTechPanel();
+//				TeamTechPanel ttp=new TeamTechPanel();
+				PlayerTechPanel ttp=new PlayerTechPanel(mf);
+//				PlayerInfoPanel ttp=new PlayerInfoPanel();
 				mf.add(ttp);
 				mf.repaint();
 				Frame.dispose();

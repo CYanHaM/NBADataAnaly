@@ -1,10 +1,9 @@
 package presentation.Preset;
 
-
 import java.awt.Color;
 import java.awt.Font;
 
-public class TeamTechPre{
+public class PlayerTechPre {
 	//颜色预设
 	public Color OddTableLine;//奇数行颜色
 	public Color EvenTableLine;//偶数行颜色
@@ -18,8 +17,8 @@ public class TeamTechPre{
 	public Font CellFont;//单元格字体
 	public Font HeaderFont;//表头字体
 
-	public TeamTechPre(){
-		
+	public PlayerTechPre(){
+
 		//偶数行灰蓝色RGB 211,221,240
 		OddTableLine=new Color(255,255,255);
 		//奇数行白色RGB 255,255,255
@@ -34,11 +33,9 @@ public class TeamTechPre{
 		TableBg=new Color(135,138,143);
 		//标题栏选中背景颜色灰白色RGB 
 		TableSelBg=new Color(153,153,153);
-		
+
 		switchbox=new Font("幼圆",0,12);
 		CellFont=new Font("Arial",0,12);
 		HeaderFont=new Font("黑体",0,11);
-		
 	}
-	
 }
