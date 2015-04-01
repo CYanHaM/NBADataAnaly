@@ -55,7 +55,13 @@ public class PlayerTech implements PlayerTechBLservice{
 		PlayerTechV2L V2L = new PlayerTechV2L();
 		PlayerTechL2P L2P = new PlayerTechL2P();
 		ArrayList<PlayerTechPO> resultpo = new ArrayList<PlayerTechPO>();
-		resultpo = ptdataservice.sift(position, division, sift);
+		String doubledouble = "doubledouble";
+		if(sift.equals(doubledouble)){
+			resultpo = ptdataservice.doubledouble(position,division,sift);
+		}
+		else{
+			resultpo = ptdataservice.sift(position, division, sift);
+		}
 		ArrayList<PlayerTechVO> result = new ArrayList<PlayerTechVO>();
 		for(int i = 0; i<50; i++){
 			result.add(L2V.l2v(P2L.p2l(resultpo.get(i))));

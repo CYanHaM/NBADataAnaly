@@ -24,5 +24,7 @@ public interface PlayerTechDataService extends Remote{
 	 * 排序条件则为该项属性非0
 	 * */
 
+	public ArrayList<PlayerTechPO> doubledouble(String position, String division, String doubledouble)throws RemoteException, ClassNotFoundException, IOException;
+
 
 }

@@ -94,4 +94,21 @@ public class LinkPlayerTechService {
 		return result;
 	}
 	
+	public ArrayList<PlayerTechPO> doubledouble(String position, String division, String doubledouble){
+		ArrayList<PlayerTechPO> result = new ArrayList<PlayerTechPO>();
+		try {
+			result = playertechdata.doubledouble(position, division, doubledouble);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 }
