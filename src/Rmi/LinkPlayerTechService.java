@@ -77,10 +77,10 @@ public class LinkPlayerTechService {
 		return result;
 	}
 	
-	public ArrayList<PlayerTechPO> sift(String position, String division, PlayerTechPO ptpo){
+	public ArrayList<PlayerTechPO> sift(String position, String division, String sift){
 		ArrayList<PlayerTechPO> result = new ArrayList<PlayerTechPO>();
 		try {
-			result = playertechdata.sift(position, division, ptpo);
+			result = playertechdata.sift(position, division, sift);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

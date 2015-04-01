@@ -23,4 +23,6 @@ public interface PlayerTechDataService extends Remote{
 	 * 筛选条件作为特定属性存入ptpo
 	 * 排序条件则为该项属性非0
 	 * */
+
+
 }
