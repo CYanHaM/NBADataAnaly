@@ -43,7 +43,7 @@ public class LinkTeamTechService {
 		}
 	}
 	
-	public ArrayList<TeamTechPO> ascend(TeamTechEnum type){
+	public ArrayList<TeamTechPO> ascend(String type){
 		ArrayList<TeamTechPO> result = new ArrayList<TeamTechPO>();
 		try {
 			result = teamtechdata.ascend(type);
@@ -60,7 +60,7 @@ public class LinkTeamTechService {
 		return result;
 	}
 	
-	public ArrayList<TeamTechPO> descend(TeamTechEnum type){
+	public ArrayList<TeamTechPO> descend(String type){
 		ArrayList<TeamTechPO> result = new ArrayList<TeamTechPO>();
 		try {
 			result = teamtechdata.descend(type);

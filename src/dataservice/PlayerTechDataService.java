@@ -10,10 +10,10 @@ import PO.PlayerTechPO;
 import TypeEnum.PlayerTechEnum;
 
 public interface PlayerTechDataService extends Remote{
-	public ArrayList<PlayerTechPO> ascend(PlayerTechEnum type)throws RemoteException, ClassNotFoundException, IOException;
+	public ArrayList<PlayerTechPO> ascend(String send)throws RemoteException, ClassNotFoundException, IOException;
 	//按照type所示条件升序排序
 	
-	public ArrayList<PlayerTechPO> descend(PlayerTechEnum type)throws RemoteException, ClassNotFoundException, IOException;
+	public ArrayList<PlayerTechPO> descend(String type)throws RemoteException, ClassNotFoundException, IOException;
 	//按照type所示条件降序排序
 	
 	public ArrayList<PlayerTechPO> sift(String position, String division, String sort)throws RemoteException, ClassNotFoundException, IOException;

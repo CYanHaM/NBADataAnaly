@@ -24,7 +24,8 @@ public class PlayerTech implements PlayerTechBLservice{
 		PlayerTechP2L P2L = new PlayerTechP2L();
 		PlayerTechL2V L2V = new PlayerTechL2V();
 		ArrayList<PlayerTechPO> resultpo = new ArrayList<PlayerTechPO>();
-		resultpo = ptdataservice.ascend(DataType);
+		String send = DataType.toString();
+		resultpo = ptdataservice.ascend(send);
 		ArrayList<PlayerTechVO> result = new ArrayList<PlayerTechVO>();
 		for(int i = 0; i<resultpo.size(); i++){
 			result.add(L2V.l2v(P2L.p2l(resultpo.get(i))));
@@ -38,7 +39,8 @@ public class PlayerTech implements PlayerTechBLservice{
 		PlayerTechP2L P2L = new PlayerTechP2L();
 		PlayerTechL2V L2V = new PlayerTechL2V();
 		ArrayList<PlayerTechPO> resultpo = new ArrayList<PlayerTechPO>();
-		resultpo = ptdataservice.descend(DataType);
+		String send = DataType.toString();
+		resultpo = ptdataservice.descend(send);
 		ArrayList<PlayerTechVO> result = new ArrayList<PlayerTechVO>();
 		for(int i = 0; i<resultpo.size(); i++){
 			result.add(L2V.l2v(P2L.p2l(resultpo.get(i))));

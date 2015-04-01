@@ -21,7 +21,8 @@ public class TeamTech implements TeamTechBLservice{
 		TeamTechP2L P2L = new TeamTechP2L();
 		TeamTechL2V L2V = new TeamTechL2V();
 		ArrayList<TeamTechPO> resultpo = new ArrayList<TeamTechPO>();
-		resultpo = ttdataservice.ascend(DataType);
+		String send = DataType.toString();
+		resultpo = ttdataservice.ascend(send);
 		ArrayList<TeamTechVO> result = new ArrayList<TeamTechVO>();
 		for(int i = 0; i<resultpo.size(); i++){
 			result.add(L2V.l2v(P2L.p2l(resultpo.get(i))));
@@ -34,7 +35,8 @@ public class TeamTech implements TeamTechBLservice{
 		TeamTechP2L P2L = new TeamTechP2L();
 		TeamTechL2V L2V = new TeamTechL2V();
 		ArrayList<TeamTechPO> resultpo = new ArrayList<TeamTechPO>();
-		resultpo = ttdataservice.descend(DataType);
+		String send = DataType.toString();
+		resultpo = ttdataservice.descend(send);
 		ArrayList<TeamTechVO> result = new ArrayList<TeamTechVO>();
 		for(int i = 0; i<resultpo.size(); i++){
 			result.add(L2V.l2v(P2L.p2l(resultpo.get(i))));
