@@ -55,8 +55,8 @@ public class PlayerPre {
 		HeaderFont=new Font("ºÚÌå",0,11);
 		
 		message=new Font("Î¢ÈíÑÅºÚ",0,15);
-		fullName=new Font("Arial",0,20);
-		abbreviation=new Font("Arial",0,15);
+		fullName=new Font("Arial",0,25);
+		abbreviation=new Font("Arial",0,11);
 		location=new Font("Arial",0,15);
 		division=new Font("Arial",0,15);
 		partition=new Font("Arial",0,15);

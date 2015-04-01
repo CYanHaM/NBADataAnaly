@@ -60,6 +60,7 @@ public class TeamPanel extends JPanel implements ActionListener{
 	private JLabel homeCourt_con;
 	private JLabel time;                //建立时间
 	private JLabel time_con;
+	private JLabel line;//水平线
 
 	//侧边栏按钮
 	private JButton TeamTech;
@@ -70,13 +71,24 @@ public class TeamPanel extends JPanel implements ActionListener{
 	ImportTeam importdata;
 	public PlayerPre PPre;
 	public JFrame Frame;
+	public TeamVO teamvo;
 	public TeamPanel(TeamVO tvo,JFrame frame){
+		teamvo=new TeamVO();
+		teamvo.fullName="Adsj csacsaw";
+		teamvo.abbreviation="ADS";
+		teamvo.location="Losangles";
+		teamvo.division="north";
+		teamvo.partition="cewvdv";
+		teamvo.homeCourt="csaacs";
+		teamvo.time="1992/2/1";
+		
 		Frame=frame;
 		this.setSize(WIDTH,HEIGHT);
 		this.setLayout(null);
 		//创建颜色预设对象
 		PPre=new PlayerPre();
-		importdata=new ImportTeam();
+//		importdata=new ImportTeam();
+//		teamvo=importdata.getTeamVO(tvo);
 		
 		playerinfo=new Object[20][columnName.length];
 		scrollpane_config();
@@ -119,48 +131,80 @@ public class TeamPanel extends JPanel implements ActionListener{
 	}
 	
 	private void addlabel(){
-		fullName=new JLabel("球队全名");
-		fullName.setBounds(545, 145, 200, 20);
+		fullName=new JLabel(teamvo.fullName);
+		fullName.setBounds(543, 145, 200, 20);
 		fullName.setForeground(PPre.label);
-		fullName.setFont(PPre.message);
+		fullName.setFont(PPre.fullName);            //此处字体需要修改！！
 		
-		abbreviation=new JLabel("缩写");
+		line=new JLabel();
+		line.setBounds(543, 200, 155, 5);
+		line.setIcon(new ImageIcon("images/teams/line.png"));
+		
+		abbreviation=new JLabel(teamvo.abbreviation);
 		abbreviation.setBounds(545, 170, 200, 15);
 		abbreviation.setForeground(PPre.label);
-		abbreviation.setFont(PPre.message);
+		abbreviation.setFont(PPre.abbreviation);        //此处字体需要修改！！
 		
-		location=new JLabel("所在地");
+		location=new JLabel("所在地:");
 		location.setBounds(545, 190, 200, 15);
 		location.setForeground(PPre.label);
 		location.setFont(PPre.message);
+		location_con=new JLabel(teamvo.location);
+		location_con.setBounds(598, 190, 200, 15);
+		location_con.setForeground(PPre.label);
+		location_con.setFont(PPre.location);
 		
-		division=new JLabel("赛区");
+		division=new JLabel("赛区:");
 		division.setBounds(545, 215, 200, 15);
 		division.setForeground(PPre.label);
 		division.setFont(PPre.message);
+		division_con=new JLabel(teamvo.division);
+		division_con.setBounds(585, 215, 200, 15);
+		division_con.setForeground(PPre.label);
+		division_con.setFont(PPre.division);
 		
-		partition=new JLabel("分区");
+		partition=new JLabel("分区:");
 		partition.setBounds(545, 240, 200, 15);
 		partition.setForeground(PPre.label);
 		partition.setFont(PPre.message);
+		partition_con=new JLabel(teamvo.partition);
+		partition_con.setBounds(585, 240, 200, 15);
+		partition_con.setForeground(PPre.label);
+		partition_con.setFont(PPre.partition);
 		
-		homeCourt=new JLabel("主场");
+		homeCourt=new JLabel("主场:");
 		homeCourt.setBounds(545, 265, 200, 15);
 		homeCourt.setForeground(PPre.label);
 		homeCourt.setFont(PPre.message);
+		homeCourt_con=new JLabel(teamvo.homeCourt);
+		homeCourt_con.setBounds(585, 265, 200, 15);
+		homeCourt_con.setForeground(PPre.label);
+		homeCourt_con.setFont(PPre.homeCourt);
 		
-		time=new JLabel("建立时间");
+		time=new JLabel("建立时间:");
 		time.setBounds(545, 290, 200, 15);
 		time.setForeground(PPre.label);
 		time.setFont(PPre.message);
+		time_con=new JLabel(teamvo.time);
+		time_con.setBounds(615, 290, 200, 15);
+		time_con.setForeground(PPre.label);
+		time_con.setFont(PPre.time);
 		
 		this.add(fullName);
 		this.add(abbreviation);
 		this.add(location);
+		this.add(location_con);
 		this.add(division);
+		this.add(division_con);
 		this.add(partition);
+		this.add(partition_con);
 		this.add(homeCourt);
+		this.add(homeCourt_con);
 		this.add(time);
+		this.add(time_con);
+		
+		this.add(line);
+		
 	}
 	//表格配置
 	public void table_config(){
