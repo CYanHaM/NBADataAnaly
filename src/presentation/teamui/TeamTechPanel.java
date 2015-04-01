@@ -47,8 +47,8 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 
 	//-------------------------界面组件--------------------
 	//设置表格属性
-	private JTable teamtable;
-	private Object[][] teaminfo;
+	private static JTable teamtable;
+	private static Object[][] teaminfo;
 	private JScrollPane teams;
 	private String[] columnName={
 			"排名","球队名称","比赛场数","投篮命中数","投篮出手次数","三分命中数",
@@ -89,19 +89,23 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		TTPre=new TeamTechPre();
 		importdata=new ImportTeam();
 		initial_data=importdata.getTeamTechDescend(TeamTechEnum.name);
+		System.out.println(initial_data.size());
 
 		teaminfo=new Object[initial_data.size()][columnName.length];
 //		teaminfo=new Object[TEAMNUM][columnName.length];
 		//加载初始表格，显示队伍总数据
-		handleTotalData(initial_data);
+		handleinitial(initial_data);
 
 		table_config();
-
 		//滑动面板信息
 		teams=new JScrollPane(teamtable);
 		teams.setBounds(WIDTH-TABLEWIDTH-e_space-space,HEIGHT-TABLEHEIGHT-e_space-space,TABLEWIDTH,TABLEHEIGHT);
 		//加载滑动面板配置
 		scrollpane_config();
+		
+		
+
+
 		
 		//下拉框
 		switchbox=new JComboBox<String>();
@@ -199,6 +203,40 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		this.add(TeamData);
 	}
 
+	private void handleinitial(ArrayList<TeamTechVO> totaldata){
+		int a=0;
+		for(TeamTechVO i:totaldata){
+			teaminfo[a][1]=i.name;
+			teaminfo[a][2]=i.gameNum;
+			teaminfo[a][3]=i.shotInNum;
+			teaminfo[a][4]=i.shotNum;
+			teaminfo[a][5]=i.threeShotInNum;
+			teaminfo[a][6]=i.threeShotNum;
+			teaminfo[a][7]=i.penaltyShotInNum;
+			teaminfo[a][8]=i.penaltyShotNum;
+			teaminfo[a][9]=i.offensiveRebound;
+			teaminfo[a][10]=i.defensiveRebound;
+			teaminfo[a][11]=i.rebound;
+			teaminfo[a][12]=i.secondaryAttack;
+			teaminfo[a][13]=i.steal;
+			teaminfo[a][14]=i.blockShot;
+			teaminfo[a][15]=i.fault;
+			teaminfo[a][16]=i.foul;
+			teaminfo[a][17]=i.score;
+			teaminfo[a][18]=i.shotInRate;
+			teaminfo[a][19]=i.threeShotInRate;
+			teaminfo[a][20]=i.penaltyShotInRate;
+			teaminfo[a][21]=i.winningRate;
+			teaminfo[a][22]=i.offensiveRound;
+			teaminfo[a][23]=i.offensiveEfficiency;
+			teaminfo[a][24]=i.defensiveEfficiency;
+			teaminfo[a][25]=i.reboundEfficiency;
+			teaminfo[a][26]=i.stealEfficiency;
+			teaminfo[a][27]=i.secondaryAttackEfficiency;
+			a++;
+		}
+	}
+	
 	private void handleTotalData(ArrayList<TeamTechVO> totaldata){
 		int a=0;
 		for(TeamTechVO i:totaldata){
@@ -274,7 +312,7 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 	//表格配置
 	public void table_config(){
 		//------------------------------表格基本属性--------------------------
-		for(int i=0;i<TEAMNUM;i++){
+		for(int i=0;i<initial_data.size();i++){
 			teaminfo[i][0]=i+1;
 		}
 		//表格属性设置
@@ -336,13 +374,6 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 				judgeOrderSource(orderSource,(String) switchbox.getSelectedItem());
 				}
 				
-				//teamtable.getTableHeader().setBackground(TTPre.getTableSelBg());
-				//teamtable.setColumnSelectionAllowed(true);
-				//teamtable.setRowSelectionAllowed(false);
-				//teamtable.setColumnSelectionInterval(HeaderColumn, HeaderColumn);
-				//TableColumn column=teamtable.getTableHeader().getColumnModel().getColumn(HeaderColumn);
-				//column.setHeaderRenderer();
-				//setTableHeaderColor(teamtable, HeaderColumn, TTPre.getTableSelBg());
 			}
 		});
 
