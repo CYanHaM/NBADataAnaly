@@ -36,7 +36,7 @@ public class TeamTechPre{
 		TableSelBg=new Color(153,153,153);
 		
 		switchbox=new Font("свт╡",0,12);
-		CellFont=new Font("Arial",0,12);
+		CellFont=new Font("свт╡",0,12);
 		HeaderFont=new Font("╨злЕ",0,11);
 		
 	}
