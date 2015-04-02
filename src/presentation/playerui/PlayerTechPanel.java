@@ -135,6 +135,14 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		positionbox.setSelectedIndex(0);
 		divisionbox.setSelectedIndex(0);
 		ordergistbox.setSelectedIndex(0);
+		//加载初始表格，显示队伍总数据
+		handleinitial(initial_data);
+
+		//加载表格配置
+		table_config();
+		//加载滑动面板配置
+		scrollpane_config();
+		this.repaint();
 	}
 
 	//===================================================================
@@ -196,7 +204,7 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		order_Asc.setBorderPainted(false);
 		order_Asc.setContentAreaFilled(false);
 		order_Asc.setFocusPainted(false);
-		order_Asc.setSelected(true);
+//		order_Asc.setSelected(true);
 		order_Asc.setBounds(WIDTH-TABLEWIDTH-e_space-space+BOXWIDTH+10,HEIGHT-TABLEHEIGHT-e_space-space-92,50,15);
 		
 		order_Des=new JRadioButton("降序");
@@ -205,6 +213,7 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		order_Des.setBorderPainted(false);
 		order_Des.setContentAreaFilled(false);
 		order_Des.setFocusPainted(false);
+		order_Des.setSelected(true);
 		order_Des.setBounds(WIDTH-TABLEWIDTH-e_space-space+BOXWIDTH+60,HEIGHT-TABLEHEIGHT-e_space-space-92,50,15);
 		
 		group=new ButtonGroup();

@@ -182,7 +182,7 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		order_Asc.setBorderPainted(false);
 		order_Asc.setContentAreaFilled(false);
 		order_Asc.setFocusPainted(false);
-		order_Asc.setSelected(true);
+//		order_Asc.setSelected(true);
 		order_Asc.setBounds(WIDTH-TABLEWIDTH-e_space-space+BOXWIDTH+10,HEIGHT-TABLEHEIGHT-e_space-space-42,50,15);
 		
 		order_Des=new JRadioButton("½µÐò");
@@ -191,6 +191,7 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		order_Des.setBorderPainted(false);
 		order_Des.setContentAreaFilled(false);
 		order_Des.setFocusPainted(false);
+		order_Des.setSelected(true);
 		order_Des.setBounds(WIDTH-TABLEWIDTH-e_space-space+BOXWIDTH+60,HEIGHT-TABLEHEIGHT-e_space-space-42,50,15);
 		
 		group=new ButtonGroup();
