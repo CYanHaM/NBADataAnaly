@@ -35,7 +35,7 @@ public class PlayerTechPre {
 		TableSelBg=new Color(153,153,153);
 
 		switchbox=new Font("Ó×Ô²",0,12);
-		CellFont=new Font("Arial",0,12);
+		CellFont=new Font("Î¢ÈíÑÅºÚ",0,13);
 		HeaderFont=new Font("ºÚÌå",0,11);
 	}
 }

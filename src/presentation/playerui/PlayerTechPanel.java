@@ -40,7 +40,7 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 	//表格行高
 	private static int ROWHEIGHT=28;
 	//表格列宽
-	private static int[] COLUMNWIDTH={50,80,170,
+	private static int[] COLUMNWIDTH={50,120,200,
 		60,60,60,60,60,
 		70,70,70,
 		60,60,60,60,60,60,60,
@@ -103,14 +103,8 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		this.setLayout(null);
 		//创建颜色预设对象
 		PTPre=new PlayerTechPre();
-		init();
-		
-		
-	}
-	
-	public void init(){
 		importdata=new ImportPlayer();
-		initial_data=importdata.getPlayerTechDescend(PlayerTechEnum.name);
+		initial_data=importdata.getPlayerTechAscend(PlayerTechEnum.name);
 
 		playerinfo=new Object[initial_data.size()][columnName.length];
 //		playerinfo=new Object[PLAYERNUM][columnName.length];
@@ -132,6 +126,15 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		addbutton();
 		
 		this.repaint();
+		
+		
+	}
+	
+	public void init(){
+		switchbox.setSelectedIndex(0);
+		positionbox.setSelectedIndex(0);
+		divisionbox.setSelectedIndex(0);
+		ordergistbox.setSelectedIndex(0);
 	}
 
 	//===================================================================
@@ -193,6 +196,7 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		order_Asc.setBorderPainted(false);
 		order_Asc.setContentAreaFilled(false);
 		order_Asc.setFocusPainted(false);
+		order_Asc.setSelected(true);
 		order_Asc.setBounds(WIDTH-TABLEWIDTH-e_space-space+BOXWIDTH+10,HEIGHT-TABLEHEIGHT-e_space-space-92,50,15);
 		
 		order_Des=new JRadioButton("降序");
@@ -201,7 +205,6 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		order_Des.setBorderPainted(false);
 		order_Des.setContentAreaFilled(false);
 		order_Des.setFocusPainted(false);
-		order_Des.setSelected(true);
 		order_Des.setBounds(WIDTH-TABLEWIDTH-e_space-space+BOXWIDTH+60,HEIGHT-TABLEHEIGHT-e_space-space-92,50,15);
 		
 		group=new ButtonGroup();
@@ -275,7 +278,7 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 	private void handleinitial(ArrayList<PlayerTechVO> totaldata){
 		int a=0;
 		for(PlayerTechVO i:totaldata){
-			playerinfo[a][1]=i.name;
+			playerinfo[a][1]=switchTeamName(i.name);
 			playerinfo[a][2]=i.team;
 			playerinfo[a][3]=i.gameNum;
 			playerinfo[a][4]=i.startingNum;
@@ -311,7 +314,7 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 	private void handleTotalData(ArrayList<PlayerTechVO> totaldata){
 		int a=0;
 		for(PlayerTechVO i:totaldata){
-			playerinfo[a][1]=i.name;
+			playerinfo[a][1]=switchTeamName(i.name);
 			playerinfo[a][2]=i.team;
 			playerinfo[a][3]=i.gameNum;
 			playerinfo[a][4]=i.startingNum;
@@ -348,7 +351,7 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 	private void handleAverageData(ArrayList<PlayerTechVO> averagedata){
 		int a=0;
 		for(PlayerTechVO i:averagedata){
-			playerinfo[a][1]=i.name;
+			playerinfo[a][1]=switchTeamName(i.name);
 			playerinfo[a][2]=i.team;
 			playerinfo[a][3]=i.gameNum;
 			playerinfo[a][4]=i.startingNum;
@@ -382,6 +385,79 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		refreshtable();
 	}
 
+	private String switchTeamName(String name){
+		switch(name){
+		case "ATL":
+			return "老鹰 Atlanta-Hawks";
+		case "CHA":
+			return "黄蜂 Charlotte-Hornets";
+		case "MIA":
+			return "热火 Miami-Heat";
+		case "ORL":
+			return "魔术 Orlando-Magic";
+		case "WAS":
+			return "奇才 Washington-Wizards";
+			
+		case "CHI":
+			return "公牛 Chicago-Bulls";
+		case "CLE":
+			return "骑士 Cleveland-Cavaliers";
+		case "DET":
+			return "活塞 Detroit-Pistons";
+		case "IND":
+			return "步行者 Indiana-Pacers";
+		case "MIL":
+			return "雄鹿 Milwaukee-Bucks";
+			
+		case "BOS":
+			return "凯尔特人 Boston-Celtics";
+		case "BKN":
+			return "篮网 Brooklyn-Nets";
+		case "NYK":
+			return "尼克斯 New York-Knicks";
+		case "PHI":
+			return "76人 Philadelphia-76ers";
+		case "TOR":
+			return "猛龙 Toronto-Raptors";
+			
+			
+		case "GSW":
+			return "勇士 Golden State-Warriors";
+		case "LAC":
+			return "快船 Los Angeles-Clippers";
+		case "LAL":
+			return "湖人 Los Angeles-Lakers";
+		case "PHX":
+			return "太阳 Phoenix-Suns";
+		case "SAC":
+			return "国王 Sacramento-Kings";
+			
+		case "DEN":
+			return "掘金 Denver-Nuggets";
+		case "MIN":
+			return "森林狼 Minnesota-Timberwolves";
+		case "OKC":
+			return "雷霆 Oklahoma City-Thunder";
+		case "POR":
+			return "开拓者 Portland-Trail Blazers";
+		case "UTA":
+			return "勇士 Utah-Jazz";
+			
+		case "DAL":
+			return "小牛 Dallas-Mavericks";
+		case "HOU":
+			return "火箭 Houston-Rockets";
+		case "MEM":
+			return "灰熊 Memphis-Grizzlies";
+		case "NOP":
+			return "鹈鹕 New Orleans-Pelicans";
+		case "SAS":
+			return "马刺 San Antonio-Spurs";
+		default :
+				return null;
+		}
+	}
+	
 	//表格配置
     public void table_config(){
 		//------------------------------表格基本属性--------------------------
@@ -766,6 +842,9 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 					handleAverageData(siftVO);
 				}
 			}
+			//去除表头监听器
+//			playertable.getTableHeader().removeMouseListener();
+			
 		}
 		
 		if(arg0.getSource()==reset){
