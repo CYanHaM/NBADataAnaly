@@ -135,6 +135,8 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		positionbox.setSelectedIndex(0);
 		divisionbox.setSelectedIndex(0);
 		ordergistbox.setSelectedIndex(0);
+		initial_data=importdata.getPlayerTechAscend(PlayerTechEnum.name);
+		playerinfo=new Object[initial_data.size()][columnName.length];
 		//加载初始表格，显示队伍总数据
 		handleinitial(initial_data);
 
