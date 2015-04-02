@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import VO.TeamVO;
+import presentation.Preset.PlayerPre;
 import presentation.playerui.PlayerTechPanel;
 
 public class TeamInfoPanel extends JPanel implements ActionListener{
@@ -63,29 +64,75 @@ public class TeamInfoPanel extends JPanel implements ActionListener{
 	private JButton SAS;
 	//联盟选项按钮
 	private JButton East;
-	private JLabel eastlabel;
+	private JLabel eastlabel_1;
+	private JLabel eastlabel_2;
+	private JLabel eastlabel_3;
 	private JButton West;
-	private JLabel westlabel;
+	private JLabel westlabel_1;
+	private JLabel westlabel_2;
+	private JLabel westlabel_3;
 	//侧边栏按钮
 	private JButton TeamTech;
 	private JButton PlayerTech;
 	private JButton TeamData;
 //	private JButton PlayerData;
 	
+	public PlayerPre PPre;
 	public JFrame Frame;
 	public TeamInfoPanel(JFrame frame){
 		Frame=frame;
 		this.setSize(WIDTH,HEIGHT);
 		this.setLayout(null);
 		this.setOpaque(false);
+		PPre=new PlayerPre();
 		
+		addlabel();
 		addbutton();
 		addteamsbutton();
 		setEastSelected();
 		
 		this.repaint();
-	}
+}
 
+	private void addlabel(){
+		eastlabel_1=new JLabel("东南分区");
+		eastlabel_1.setForeground(PPre.TableFg);
+		eastlabel_1.setFont(PPre.switchbox);
+		eastlabel_1.setBounds(270, 130, 100, 15);
+		
+		eastlabel_2=new JLabel("中央分区");
+		eastlabel_2.setForeground(PPre.TableFg);
+		eastlabel_2.setFont(PPre.switchbox);
+		eastlabel_2.setBounds(535, 130, 100, 15);
+		
+		eastlabel_3=new JLabel("大西洋分区");
+		eastlabel_3.setForeground(PPre.TableFg);
+		eastlabel_3.setFont(PPre.switchbox);
+		eastlabel_3.setBounds(805, 130, 100, 15);
+		
+		westlabel_1=new JLabel("太平洋分区");
+		westlabel_1.setForeground(PPre.TableFg);
+		westlabel_1.setFont(PPre.switchbox);
+		westlabel_1.setBounds(270, 130, 100, 15);
+		
+		westlabel_2=new JLabel("西北分区");
+		westlabel_2.setForeground(PPre.TableFg);
+		westlabel_2.setFont(PPre.switchbox);
+		westlabel_2.setBounds(535, 130, 100, 15);
+		
+		westlabel_3=new JLabel("西南分区");
+		westlabel_3.setForeground(PPre.TableFg);
+		westlabel_3.setFont(PPre.switchbox);
+		westlabel_3.setBounds(805, 130, 100, 15);
+		
+		this.add(eastlabel_1);
+		this.add(eastlabel_2);
+		this.add(eastlabel_3);
+		this.add(westlabel_1);
+		this.add(westlabel_2);
+		this.add(westlabel_3);
+	}
+	
 	private void addbutton(){
 		TeamTech=new JButton(new ImageIcon("images/buttons/teamtech/TeamTech_initial.png"));
 		TeamTech.setBounds(26, 145, 148, 40);
@@ -249,6 +296,13 @@ public class TeamInfoPanel extends JPanel implements ActionListener{
 	public void setEastSelected(){
 		East.setIcon(new ImageIcon("images/teams/location/east_3.png"));
 		West.setIcon(new ImageIcon("images/teams/location/west_1.png"));
+		eastlabel_1.setVisible(true);
+		eastlabel_2.setVisible(true);
+		eastlabel_3.setVisible(true);
+		westlabel_1.setVisible(false);
+		westlabel_2.setVisible(false);
+		westlabel_3.setVisible(false);
+		
 		ATL.setVisible(true);
 		CHA.setVisible(true);
 		MIA.setVisible(true);
@@ -289,6 +343,13 @@ public class TeamInfoPanel extends JPanel implements ActionListener{
 	public void setWestSelected(){
 		East.setIcon(new ImageIcon("images/teams/location/east_1.png"));
 		West.setIcon(new ImageIcon("images/teams/location/west_3.png"));
+		eastlabel_1.setVisible(false);
+		eastlabel_2.setVisible(false);
+		eastlabel_3.setVisible(false);
+		westlabel_1.setVisible(true);
+		westlabel_2.setVisible(true);
+		westlabel_3.setVisible(true);
+		
 		ATL.setVisible(false);
 		CHA.setVisible(false);
 		MIA.setVisible(false);

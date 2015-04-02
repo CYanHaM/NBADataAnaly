@@ -22,6 +22,7 @@ public class PlayerPre {
 	public Font HeaderFont;//表头字体
 	
 	public Font message;
+	public Font messageSmall;
 	public Font fullName;//球队全名
 	public Font abbreviation;//缩写
 	public Font location;//所在地
@@ -54,7 +55,9 @@ public class PlayerPre {
 		CellFont=new Font("Arial",0,12);
 		HeaderFont=new Font("黑体",0,11);
 		
+		
 		message=new Font("微软雅黑",0,15);
+		messageSmall=new Font("微软雅黑",0,13);
 		fullName=new Font("Arial",0,25);
 		abbreviation=new Font("Arial",0,11);
 		location=new Font("Arial",0,15);

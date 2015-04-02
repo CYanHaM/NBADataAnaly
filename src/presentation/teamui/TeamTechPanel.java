@@ -89,7 +89,7 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		TTPre=new TeamTechPre();
 		importdata=new ImportTeam();
 		initial_data=importdata.getTeamTechAscend(TeamTechEnum.name);
-		System.out.println(initial_data.size());
+//		System.out.println(initial_data.size());
 
 		teaminfo=new Object[initial_data.size()][columnName.length];
 //		teaminfo=new Object[TEAMNUM][columnName.length];

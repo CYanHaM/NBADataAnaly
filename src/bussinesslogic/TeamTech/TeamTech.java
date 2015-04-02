@@ -48,8 +48,6 @@ public class TeamTech implements TeamTechBLservice{
 			TeamTechVO temp = new TeamTechVO();
 			tmp = P2L.p2l(resultpo.get(i));
 			temp = L2V.l2v(tmp);
-			System.out.println(temp);
-			System.out.println(tmp);
 			result.add(temp);
 		}
 		return result;

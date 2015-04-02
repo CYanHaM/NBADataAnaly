@@ -130,22 +130,22 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		
 	}
 	
-	public void init(){
-		switchbox.setSelectedIndex(0);
-		positionbox.setSelectedIndex(0);
-		divisionbox.setSelectedIndex(0);
-		ordergistbox.setSelectedIndex(0);
-		initial_data=importdata.getPlayerTechAscend(PlayerTechEnum.name);
-		playerinfo=new Object[initial_data.size()][columnName.length];
-		//加载初始表格，显示队伍总数据
-		handleinitial(initial_data);
-
-		//加载表格配置
-		table_config();
-		//加载滑动面板配置
-		scrollpane_config();
-		this.repaint();
-	}
+//	public void init(){
+//		switchbox.setSelectedIndex(0);
+//		positionbox.setSelectedIndex(0);
+//		divisionbox.setSelectedIndex(0);
+//		ordergistbox.setSelectedIndex(0);
+//		initial_data=importdata.getPlayerTechAscend(PlayerTechEnum.name);
+//		playerinfo=new Object[initial_data.size()][columnName.length];
+//		//加载初始表格，显示队伍总数据
+//		handleinitial(initial_data);
+//
+//		//加载表格配置
+//		table_config();
+//		//加载滑动面板配置
+//		scrollpane_config();
+//		this.repaint();
+//	}
 
 	//===================================================================
 	private void addbox(){
@@ -362,8 +362,8 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 	private void handleAverageData(ArrayList<PlayerTechVO> averagedata){
 		int a=0;
 		for(PlayerTechVO i:averagedata){
-			playerinfo[a][1]=switchTeamName(i.name);
-			playerinfo[a][2]=i.team;
+			playerinfo[a][1]=i.name;
+			playerinfo[a][2]=switchTeamName(i.team);
 			playerinfo[a][3]=i.gameNum;
 			playerinfo[a][4]=i.startingNum;
 			playerinfo[a][5]=i.reboundave;
@@ -859,7 +859,10 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		}
 		
 		if(arg0.getSource()==reset){
-			init();
+			Frame.remove(this);
+			PlayerTechPanel ptp=new PlayerTechPanel(Frame);
+			Frame.add(ptp);
+			Frame.repaint();
 		}
 		
 		if(arg0.getSource()==TeamTech){
