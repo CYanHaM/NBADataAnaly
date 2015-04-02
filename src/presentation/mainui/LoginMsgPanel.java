@@ -8,7 +8,10 @@ import javax.swing.*;
 
 import presentation.playerui.PlayerTechPanel;
 import presentation.playerui.PlayerInfoPanel;
+import presentation.teamui.TeamInfoPanel;
+import presentation.teamui.TeamPanel;
 import presentation.teamui.TeamTechPanel;
+import VO.TeamVO;
 import blservice.LoginBLservice;
 import bussinesslogic.LoginBL.Login;
 
@@ -101,9 +104,12 @@ public class LoginMsgPanel extends JPanel implements ActionListener{
 			}else{
 				lbs.setURL(newURL);
 				MainFrame mf=new MainFrame();
-				TeamTechPanel ttp=new TeamTechPanel(mf);
+//				TeamTechPanel ttp=new TeamTechPanel(mf);
 //				PlayerTechPanel ttp=new PlayerTechPanel(mf);
-//				PlayerInfoPanel ttp=new PlayerInfoPanel(mf);
+				TeamInfoPanel ttp=new TeamInfoPanel(mf);
+//				TeamVO tvo=new TeamVO();
+//				tvo.fullName="asdasd";
+//				TeamPanel ttp=new TeamPanel(tvo,mf);
 				mf.add(ttp);
 				mf.repaint();
 				Frame.dispose();

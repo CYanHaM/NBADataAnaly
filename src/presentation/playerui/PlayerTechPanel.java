@@ -13,9 +13,7 @@ import presentation.Preset.PlayerTechPre;
 import presentation.teamui.TeamInfoPanel;
 import presentation.teamui.TeamTechPanel;
 import TypeEnum.PlayerTechEnum;
-import TypeEnum.PlayerTechEnum;
 import VO.PlayerTechVO;
-import VO.TeamTechVO;
 
 public class PlayerTechPanel extends JPanel implements ActionListener{
 	/**
@@ -34,7 +32,7 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 	//定义空出位置大小
 	private static int space=20;
 	//设置球员总数常量
-	private static int PLAYERNUM=443;
+//	private static int PLAYERNUM=443;
 
 	//表格大小
 	private static int TABLEWIDTH=800;
@@ -64,8 +62,6 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 			"投篮命中率","三分命中率","罚球命中率",
 			"进攻数","防守数","抢断数","盖帽数","失误数","犯规数","得分",
 			"效率","GmSc 效率值","真实命中率","投篮效率","篮板率","进攻篮板率","防守篮板率","助攻率","抢断率","盖帽率","失误率","使用率"};
-	//	
-	//	private String[] columnName={"","","","","","","","","","","","","","","","",""};
 	//总数据与场均数据切换下拉框
 	private JComboBox<String> switchbox;
 	
@@ -92,7 +88,7 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 	private JButton TeamTech;
 	private JButton PlayerTech;
 	private JButton TeamData;
-	private JButton PlayerData;
+//	private JButton PlayerData;
 	
 	//----------------------------------------------------
 	public PlayerTechPre PTPre;
@@ -119,7 +115,7 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		playerinfo=new Object[initial_data.size()][columnName.length];
 //		playerinfo=new Object[PLAYERNUM][columnName.length];
 		//加载初始表格，显示队伍总数据
-		handleTotalData(initial_data);
+		handleinitial(initial_data);
 
 		//加载表格配置
 		table_config();
@@ -276,6 +272,42 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 	}
 	//===================================================================
 	
+	private void handleinitial(ArrayList<PlayerTechVO> totaldata){
+		int a=0;
+		for(PlayerTechVO i:totaldata){
+			playerinfo[a][1]=i.name;
+			playerinfo[a][2]=i.team;
+			playerinfo[a][3]=i.gameNum;
+			playerinfo[a][4]=i.startingNum;
+			playerinfo[a][5]=i.rebound;
+			playerinfo[a][6]=i.secondaryAttack;
+			playerinfo[a][7]=i.time;
+			playerinfo[a][8]=i.shotInRate;
+			playerinfo[a][9]=i.threeShotInRate;
+			playerinfo[a][10]=i.penaltyShotInRate;
+			playerinfo[a][11]=i.offensiveNum;
+			playerinfo[a][12]=i.defensiveNum;
+			playerinfo[a][13]=i.steal;
+			playerinfo[a][14]=i.blockShot;
+			playerinfo[a][15]=i.fault;
+			playerinfo[a][16]=i.foul;
+			playerinfo[a][17]=i.score;
+			playerinfo[a][18]=i.efficiency;
+			playerinfo[a][19]=i.GmScEfficiency;
+			playerinfo[a][20]=i.trueShotInRate;
+			playerinfo[a][21]=i.shootingEfficiency;
+			playerinfo[a][22]=i.reboundRate;
+			playerinfo[a][23]=i.offensiveReboundRate;
+			playerinfo[a][24]=i.defensiveReboundRate;
+			playerinfo[a][25]=i.secondaryAttackRate;
+			playerinfo[a][26]=i.stealRate;
+			playerinfo[a][27]=i.blockShotRate;
+			playerinfo[a][28]=i.faultRate;
+			playerinfo[a][29]=i.usageRate;
+			a++;
+		}
+	}
+	
 	private void handleTotalData(ArrayList<PlayerTechVO> totaldata){
 		int a=0;
 		for(PlayerTechVO i:totaldata){
@@ -312,7 +344,6 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		}
 		refreshtable();
 	}
-	
 
 	private void handleAverageData(ArrayList<PlayerTechVO> averagedata){
 		int a=0;
@@ -402,10 +433,7 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 		for(int i=0;i<COLUMNWIDTH.length;i++){
 			playertable.getColumnModel().getColumn(i).setPreferredWidth(COLUMNWIDTH[i]);
 		}
-
 		//-----------------------------------------------------------------
-
-
 		//添加table表头点击事件
 		playertable.getTableHeader().addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e){
@@ -627,8 +655,6 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 				handleAverageData(orderPlayerTechVO);
 			}
 	}
-	
-	
 	
 	//滑动面板配置
 	public void scrollpane_config(){

@@ -30,7 +30,7 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 	//定义空出位置大小
 	private static int space=20;
 	//设置球队总数常量
-	private static int TEAMNUM=30;
+//	private static int TEAMNUM=30;
 	
 	//表格大小
 	private static int TABLEWIDTH=800;
@@ -60,7 +60,7 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 	//	private String[] columnName={"","","","","","","","","","","","","","","","",""};
 	//总数据与场均数据切换下拉框
 	private JComboBox<String> switchbox;
-	private JComboBox<String> search;
+//	private JComboBox<String> search;
 	
 	private JRadioButton order_Asc;
 	private JRadioButton order_Des;
@@ -96,78 +96,23 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		//加载初始表格，显示队伍总数据
 		handleinitial(initial_data);
 
+		//加载表格配置
 		table_config();
-		//滑动面板信息
-		teams=new JScrollPane(teamtable);
-		teams.setBounds(WIDTH-TABLEWIDTH-e_space-space,HEIGHT-TABLEHEIGHT-e_space-space,TABLEWIDTH,TABLEHEIGHT);
 		//加载滑动面板配置
 		scrollpane_config();
-		
-		
-
-
-		
-		//下拉框
-		switchbox=new JComboBox<String>();
-		switchbox.setFocusable(false);
-		switchbox.setBackground(TTPre.LineSelected);
-		switchbox.addItem("赛季总数据");
-		switchbox.addItem("场均数据");
-		switchbox.setBounds(WIDTH-TABLEWIDTH-e_space-space,HEIGHT-TABLEHEIGHT-e_space-space-50,BOXWIDTH,BOXHEIGHT);
-		switchbox.setFont(TTPre.switchbox);
-		switchbox.addItemListener(new ItemListener(){
-			@Override
-			public void itemStateChanged(ItemEvent arg0) {
-				// TODO Auto-generated method stub
-				if(arg0.getStateChange()==ItemEvent.SELECTED){
-					if(switchbox.getSelectedItem().equals("赛季总数据")){
-//						System.out.println("赛季总数据");
-						handleTotalData(initial_data);
-					}
-					if(switchbox.getSelectedItem().equals("场均数据")){
-//						System.out.println("场均数据");
-						handleAverageData(initial_data);
-					}
-				}
-			}
-		});
-
-		order_Asc=new JRadioButton("升序");
-		order_Asc.setFont(TTPre.switchbox);
-		order_Asc.setForeground(TTPre.TableFg);
-		order_Asc.setBorderPainted(false);
-		order_Asc.setContentAreaFilled(false);
-		order_Asc.setFocusPainted(false);
-		order_Asc.setBounds(WIDTH-TABLEWIDTH-e_space-space+BOXWIDTH+10,HEIGHT-TABLEHEIGHT-e_space-space-42,50,15);
-		
-		order_Des=new JRadioButton("降序");
-		order_Des.setFont(TTPre.switchbox);
-		order_Des.setForeground(TTPre.TableFg);
-		order_Des.setBorderPainted(false);
-		order_Des.setContentAreaFilled(false);
-		order_Des.setFocusPainted(false);
-		order_Des.setSelected(true);
-		order_Des.setBounds(WIDTH-TABLEWIDTH-e_space-space+BOXWIDTH+60,HEIGHT-TABLEHEIGHT-e_space-space-42,50,15);
-		
-		group=new ButtonGroup();
-		group.add(order_Asc);
-		group.add(order_Des);
+		//添加下拉框
+		addbox();
+		//添加单选按钮
+		addradiobutton();
+		//添加侧边栏按钮
+		addbutton();
 		
 		message=new JLabel();
 		message.setBounds(WIDTH-TABLEWIDTH-e_space-space+BOXWIDTH+130, HEIGHT-TABLEHEIGHT-e_space-space-42, 200, 15);
 		message.setFont(TTPre.switchbox);
 		message.setForeground(TTPre.TableFg);
 		
-		addbutton();
-		
-		
-		this.add(order_Asc);
-		this.add(order_Des);
 		this.add(message);
-		this.add(switchbox);
-		this.add(teams);
-		this.add(TeamTech);
-		
 		this.repaint();
 	}
 	
@@ -177,8 +122,6 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		TeamTech.setBorderPainted(false);
 		TeamTech.setContentAreaFilled(false);
 		TeamTech.setFocusPainted(false);
-//		TeamTech.setRolloverIcon(new ImageIcon("images/buttons/teamtech/TeamTech_rollover.png"));
-//		TeamTech.setPressedIcon(new ImageIcon("images/buttons/teamtech/TeamTech_pressed.png"));
 		
 		PlayerTech=new JButton(new ImageIcon("images/buttons/playertech/PlayerTech_initial.png"));
 		PlayerTech.setBounds(26, 185, 148, 40);
@@ -203,6 +146,61 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		this.add(TeamData);
 	}
 
+	private void addbox(){
+		//下拉框
+		switchbox=new JComboBox<String>();
+		switchbox.setFocusable(false);
+		switchbox.setBackground(TTPre.LineSelected);
+		switchbox.addItem("赛季总数据");
+		switchbox.addItem("场均数据");
+		switchbox.setBounds(WIDTH-TABLEWIDTH-e_space-space,HEIGHT-TABLEHEIGHT-e_space-space-50,BOXWIDTH,BOXHEIGHT);
+		switchbox.setFont(TTPre.switchbox);
+		switchbox.addItemListener(new ItemListener(){
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+				if(arg0.getStateChange()==ItemEvent.SELECTED){
+					if(switchbox.getSelectedItem().equals("赛季总数据")){
+						//								System.out.println("赛季总数据");
+						handleTotalData(initial_data);
+					}
+					if(switchbox.getSelectedItem().equals("场均数据")){
+						//								System.out.println("场均数据");
+						handleAverageData(initial_data);
+					}
+				}
+			}
+		});
+		
+		this.add(switchbox);
+	}
+	
+	private void addradiobutton(){
+		order_Asc=new JRadioButton("升序");
+		order_Asc.setFont(TTPre.switchbox);
+		order_Asc.setForeground(TTPre.TableFg);
+		order_Asc.setBorderPainted(false);
+		order_Asc.setContentAreaFilled(false);
+		order_Asc.setFocusPainted(false);
+		order_Asc.setBounds(WIDTH-TABLEWIDTH-e_space-space+BOXWIDTH+10,HEIGHT-TABLEHEIGHT-e_space-space-42,50,15);
+		
+		order_Des=new JRadioButton("降序");
+		order_Des.setFont(TTPre.switchbox);
+		order_Des.setForeground(TTPre.TableFg);
+		order_Des.setBorderPainted(false);
+		order_Des.setContentAreaFilled(false);
+		order_Des.setFocusPainted(false);
+		order_Des.setSelected(true);
+		order_Des.setBounds(WIDTH-TABLEWIDTH-e_space-space+BOXWIDTH+60,HEIGHT-TABLEHEIGHT-e_space-space-42,50,15);
+		
+		group=new ButtonGroup();
+		group.add(order_Asc);
+		group.add(order_Des);
+		
+		this.add(order_Asc);
+		this.add(order_Des);
+	}
+	
 	private void handleinitial(ArrayList<TeamTechVO> totaldata){
 		int a=0;
 		for(TeamTechVO i:totaldata){
@@ -272,7 +270,6 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		refreshtable();
 	}
 
-
 	private void handleAverageData(ArrayList<TeamTechVO> averagedata){
 		int a=0;
 		for(TeamTechVO i:averagedata){
@@ -307,7 +304,6 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		}
 		refreshtable();
 	}
-
 
 	//表格配置
 	public void table_config(){
@@ -563,9 +559,11 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 			}
 	}
 
-	
 	//滑动面板配置
 	public void scrollpane_config(){
+		//滑动面板信息
+		teams=new JScrollPane(teamtable);
+		teams.setBounds(WIDTH-TABLEWIDTH-e_space-space,HEIGHT-TABLEHEIGHT-e_space-space,TABLEWIDTH,TABLEHEIGHT);
 		teams.setHorizontalScrollBarPolicy( 
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); 
 		teams.setVerticalScrollBarPolicy( 
@@ -612,6 +610,8 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 			};
 			teams.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,component);
 		}
+		
+		this.add(teams);
 	}
 
 	//重载单元格标准类,用于改变单元格背景颜色

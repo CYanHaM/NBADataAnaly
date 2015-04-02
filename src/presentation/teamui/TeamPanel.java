@@ -8,14 +8,14 @@ import java.awt.Paint;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
+import VO.PlayerVO;
 import VO.TeamVO;
 import presentation.Preset.PlayerPre;
 import presentation.playerui.PlayerTechPanel;
@@ -76,6 +76,7 @@ public class TeamPanel extends JPanel implements ActionListener{
 	public PlayerPre PPre;
 	public JFrame Frame;
 	public TeamVO teamvo;
+	public ArrayList<PlayerVO> playerlist;
 	public TeamPanel(TeamVO tvo,JFrame frame){
 		
 //		teamvo=new TeamVO();
@@ -92,18 +93,27 @@ public class TeamPanel extends JPanel implements ActionListener{
 		this.setLayout(null);
 		//创建颜色预设对象
 		PPre=new PlayerPre();
+		//导入数据
 		importdata=new ImportTeam();
 		teamvo=importdata.getTeamVO(tvo);
+		playerlist=importdata.findByTeam(teamvo);
 		
-		playerinfo=new Object[20][columnName.length];
-		scrollpane_config();
+		playerinfo=new Object[playerlist.size()][columnName.length];
+//		playerinfo=new Object[20][columnName.length];
+		//初始化数据，以便放入table中
+		handleinitial(playerlist);
+		//加载表格配置
 		table_config();
+		//加载滑动面板配置
+		scrollpane_config();
 		players.setViewportView(playertable);
-		
+		//添加按钮、消息框
 		addbutton();
 		addlabel();
+		
+		this.repaint();
 	}
-
+    //=============================================
 	private void addbutton(){
 		TeamTech=new JButton(new ImageIcon("images/buttons/teamtech/TeamTech_initial.png"));
 		TeamTech.setBounds(26, 145, 148, 40);
@@ -129,12 +139,22 @@ public class TeamPanel extends JPanel implements ActionListener{
 		TeamData.setContentAreaFilled(false);
 		TeamData.setFocusPainted(false);
 		
+		back=new JButton(new ImageIcon("images/system_img/back_initial.png"));
+		back.setBounds(200, 85, 100, 50);
+		back.setBorderPainted(false);
+		back.setContentAreaFilled(false);
+		back.setFocusPainted(false);
+		back.setRolloverIcon(new ImageIcon("images/system_img/back_rollover.png"));
+		back.setPressedIcon(new ImageIcon("images/system_img/back_pressed.png"));
+		back.addActionListener(this);
+		
 		this.add(TeamTech);
 		this.add(PlayerTech);
 		this.add(TeamData);
+		this.add(back);
 		this.repaint();
 	}
-	
+	 
 	//定义所有显示及渲染球队信息的lablel
 	private void addlabel(){
 		Icon=new JLabel(new ImageIcon("images/teams/"+teamvo.abbreviation+".png"));
@@ -215,6 +235,7 @@ public class TeamPanel extends JPanel implements ActionListener{
 		this.add(Icon);
 		
 	}
+	//=============================================
 	//表格配置
 	public void table_config(){
 		//------------------------------表格基本属性--------------------------
@@ -322,6 +343,22 @@ public class TeamPanel extends JPanel implements ActionListener{
 		this.add(players);
 	}
 
+	public void handleinitial(ArrayList<PlayerVO> player){
+		int a=0;
+		for(PlayerVO i:player){
+			playerinfo[a][0]=i.name;
+			playerinfo[a][1]=i.uniformNum;
+			playerinfo[a][2]=i.position;
+			playerinfo[a][3]=i.height;
+			playerinfo[a][4]=i.weight;
+			playerinfo[a][5]=i.birth;
+			playerinfo[a][6]=i.age;
+			playerinfo[a][7]=i.exp;
+			playerinfo[a][8]=i.school;
+			a++;
+		}
+	}
+	
 	//重载单元格标准类,用于改变单元格背景颜色
 	private class RowRenderer extends DefaultTableCellRenderer 
 	{
@@ -362,6 +399,12 @@ public class TeamPanel extends JPanel implements ActionListener{
 			Frame.remove(this);
 			PlayerTechPanel ptp=new PlayerTechPanel(Frame);
 			Frame.add(ptp);
+			Frame.repaint();
+		}
+		if(arg0.getSource()==back){
+			Frame.remove(this);
+			TeamInfoPanel tip=new TeamInfoPanel(Frame);
+			Frame.add(tip);
 			Frame.repaint();
 		}
 	}
