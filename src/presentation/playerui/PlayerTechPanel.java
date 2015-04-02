@@ -278,8 +278,8 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 	private void handleinitial(ArrayList<PlayerTechVO> totaldata){
 		int a=0;
 		for(PlayerTechVO i:totaldata){
-			playerinfo[a][1]=switchTeamName(i.name);
-			playerinfo[a][2]=i.team;
+			playerinfo[a][1]=i.name;
+			playerinfo[a][2]=switchTeamName(i.team);
 			playerinfo[a][3]=i.gameNum;
 			playerinfo[a][4]=i.startingNum;
 			playerinfo[a][5]=i.rebound;
@@ -314,8 +314,8 @@ public class PlayerTechPanel extends JPanel implements ActionListener{
 	private void handleTotalData(ArrayList<PlayerTechVO> totaldata){
 		int a=0;
 		for(PlayerTechVO i:totaldata){
-			playerinfo[a][1]=switchTeamName(i.name);
-			playerinfo[a][2]=i.team;
+			playerinfo[a][1]=i.name;
+			playerinfo[a][2]=switchTeamName(i.team);
 			playerinfo[a][3]=i.gameNum;
 			playerinfo[a][4]=i.startingNum;
 			playerinfo[a][5]=i.rebound;
