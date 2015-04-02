@@ -41,7 +41,7 @@ public class TeamPanel extends JPanel implements ActionListener{
 	//表格行高
 	private static int ROWHEIGHT=35;
 	//表格列宽
-	private static int[] COLUMNWIDTH={120,60,60,200,200,200,60,60,250};
+	private static int[] COLUMNWIDTH={200,80,80,100,100,200,60,60,250};
 	//设置表格属性
 	private JTable playertable;
 	private Object[][] playerinfo;
@@ -95,6 +95,7 @@ public class TeamPanel extends JPanel implements ActionListener{
 		PPre=new PlayerPre();
 		//导入数据
 		importdata=new ImportTeam();
+//		System.out.println(tvo.fullName);
 		teamvo=importdata.getTeamVO(tvo);
 		playerlist=importdata.findByTeam(teamvo);
 		
@@ -382,7 +383,7 @@ public class TeamPanel extends JPanel implements ActionListener{
 	//绘制界面背景
 	public void paintComponent(Graphics g){
 		super.paintComponents(g);
-		ImageIcon im1=new ImageIcon("images/system_img/main_bg.png");
+		ImageIcon im1=new ImageIcon("images/system_img/teams_bg.png");
 		g.drawImage(im1.getImage(),0,0,this);
 	}
 	

@@ -38,7 +38,7 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 	//表格行高
 	private static int ROWHEIGHT=28;
 	//表格列宽
-	private static int[] COLUMNWIDTH={50,170,60,80,80,80,80,80,80,80,80,60,60,60,60,60,60,80,80,80,80,80,80,80,80,80};
+	private static int[] COLUMNWIDTH={50,200,60,80,80,80,80,80,80,80,80,60,60,60,60,60,60,80,80,80,80,80,80,80,80,80};
 
 	//下拉框大小
 	private static int BOXWIDTH=160;
@@ -204,7 +204,7 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 	private void handleinitial(ArrayList<TeamTechVO> totaldata){
 		int a=0;
 		for(TeamTechVO i:totaldata){
-			teaminfo[a][1]=i.name;
+			teaminfo[a][1]=switchTeamName(i.name);
 			teaminfo[a][2]=i.gameNum;
 			teaminfo[a][3]=i.shotInNum;
 			teaminfo[a][4]=i.shotNum;
@@ -238,7 +238,7 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 	private void handleTotalData(ArrayList<TeamTechVO> totaldata){
 		int a=0;
 		for(TeamTechVO i:totaldata){
-			teaminfo[a][1]=i.name;
+			teaminfo[a][1]=switchTeamName(i.name);
 			teaminfo[a][2]=i.gameNum;
 			teaminfo[a][3]=i.shotInNum;
 			teaminfo[a][4]=i.shotNum;
@@ -273,7 +273,7 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 	private void handleAverageData(ArrayList<TeamTechVO> averagedata){
 		int a=0;
 		for(TeamTechVO i:averagedata){
-			teaminfo[a][1]=i.name;
+			teaminfo[a][1]=switchTeamName(i.name);
 			teaminfo[a][2]=i.gameNum;
 			teaminfo[a][3]=i.shotInNumave;
 			teaminfo[a][4]=i.shotNumave;
@@ -305,6 +305,79 @@ public class TeamTechPanel extends JPanel implements ActionListener{
 		refreshtable();
 	}
 
+	private String switchTeamName(String name){
+		switch(name){
+		case "ATL":
+			return "老鹰 Atlanta-Hawks";
+		case "CHA":
+			return "黄蜂 Charlotte-Hornets";
+		case "MIA":
+			return "热火 Miami-Heat";
+		case "ORL":
+			return "魔术 Orlando-Magic";
+		case "WAS":
+			return "奇才 Washington-Wizards";
+			
+		case "CHI":
+			return "公牛 Chicago-Bulls";
+		case "CLE":
+			return "骑士 Cleveland-Cavaliers";
+		case "DET":
+			return "活塞 Detroit-Pistons";
+		case "IND":
+			return "步行者 Indiana-Pacers";
+		case "MIL":
+			return "雄鹿 Milwaukee-Bucks";
+			
+		case "BOS":
+			return "凯尔特人 Boston-Celtics";
+		case "BKN":
+			return "篮网 Brooklyn-Nets";
+		case "NYK":
+			return "尼克斯 New York-Knicks";
+		case "PHI":
+			return "76人 Philadelphia-76ers";
+		case "TOR":
+			return "猛龙 Toronto-Raptors";
+			
+			
+		case "GSW":
+			return "勇士 Golden State-Warriors";
+		case "LAC":
+			return "快船 Los Angeles-Clippers";
+		case "LAL":
+			return "湖人 Los Angeles-Lakers";
+		case "PHX":
+			return "太阳 Phoenix-Suns";
+		case "SAC":
+			return "国王 Sacramento-Kings";
+			
+		case "DEN":
+			return "掘金 Denver-Nuggets";
+		case "MIN":
+			return "森林狼 Minnesota-Timberwolves";
+		case "OKC":
+			return "雷霆 Oklahoma City-Thunder";
+		case "POR":
+			return "开拓者 Portland-Trail Blazers";
+		case "UTA":
+			return "勇士 Utah-Jazz";
+			
+		case "DAL":
+			return "小牛 Dallas-Mavericks";
+		case "HOU":
+			return "火箭 Houston-Rockets";
+		case "MEM":
+			return "灰熊 Memphis-Grizzlies";
+		case "NOP":
+			return "鹈鹕 New Orleans-Pelicans";
+		case "SAS":
+			return "马刺 San Antonio-Spurs";
+		default :
+				return null;
+		}
+	}
+	
 	//表格配置
 	public void table_config(){
 		//------------------------------表格基本属性--------------------------

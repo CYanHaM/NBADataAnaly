@@ -104,9 +104,9 @@ public class LoginMsgPanel extends JPanel implements ActionListener{
 			}else{
 				lbs.setURL(newURL);
 				MainFrame mf=new MainFrame();
-//				TeamTechPanel ttp=new TeamTechPanel(mf);
+				TeamTechPanel ttp=new TeamTechPanel(mf);
 //				PlayerTechPanel ttp=new PlayerTechPanel(mf);
-				TeamInfoPanel ttp=new TeamInfoPanel(mf);
+//				TeamInfoPanel ttp=new TeamInfoPanel(mf);
 //				TeamVO tvo=new TeamVO();
 //				tvo.fullName="asdasd";
 //				TeamPanel ttp=new TeamPanel(tvo,mf);
