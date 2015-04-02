@@ -21,14 +21,19 @@ public class PlayerTech implements PlayerTechBLservice{
 	@Override
 	public ArrayList<PlayerTechVO> Ascend(PlayerTechEnum DataType) {
 		// TODO Auto-generated method stub
-		PlayerTechP2L P2L = new PlayerTechP2L();
-		PlayerTechL2V L2V = new PlayerTechL2V();
+
 		ArrayList<PlayerTechPO> resultpo = new ArrayList<PlayerTechPO>();
 		String send = DataType.toString();
 		resultpo = ptdataservice.ascend(send);
 		ArrayList<PlayerTechVO> result = new ArrayList<PlayerTechVO>();
 		for(int i = 0; i<resultpo.size(); i++){
-			result.add(L2V.l2v(P2L.p2l(resultpo.get(i))));
+			PlayerTechP2L P2L = new PlayerTechP2L();
+			PlayerTechL2V L2V = new PlayerTechL2V();
+			PlayerTechLineItem ptli = new PlayerTechLineItem();
+			PlayerTechVO ptvo = new PlayerTechVO();
+			ptli = P2L.p2l(resultpo.get(i));
+			ptvo = L2V.l2v(ptli);
+			result.add(ptvo);
 		}
 		return result;
 	}
@@ -36,14 +41,19 @@ public class PlayerTech implements PlayerTechBLservice{
 	@Override
 	public ArrayList<PlayerTechVO> Descend(PlayerTechEnum DataType) {
 		// TODO Auto-generated method stub
-		PlayerTechP2L P2L = new PlayerTechP2L();
-		PlayerTechL2V L2V = new PlayerTechL2V();
+
 		ArrayList<PlayerTechPO> resultpo = new ArrayList<PlayerTechPO>();
 		String send = DataType.toString();
 		resultpo = ptdataservice.descend(send);
 		ArrayList<PlayerTechVO> result = new ArrayList<PlayerTechVO>();
 		for(int i = 0; i<resultpo.size(); i++){
-			result.add(L2V.l2v(P2L.p2l(resultpo.get(i))));
+			PlayerTechP2L P2L = new PlayerTechP2L();
+			PlayerTechL2V L2V = new PlayerTechL2V();
+			PlayerTechLineItem ptli = new PlayerTechLineItem();
+			PlayerTechVO ptvo = new PlayerTechVO();
+			ptli = P2L.p2l(resultpo.get(i));
+			ptvo = L2V.l2v(ptli);
+			result.add(ptvo);
 		}
 		return result;
 	}
