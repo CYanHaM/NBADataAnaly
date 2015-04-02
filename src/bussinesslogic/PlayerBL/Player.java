@@ -47,16 +47,20 @@ public class Player implements PlayerBLservice{
 		// TODO Auto-generated method stub
 		ArrayList<PlayerPO> resultpo = new ArrayList<PlayerPO>();
 		ArrayList<PlayerVO> resultvo = new ArrayList<PlayerVO>();
-		PlayerP2L P2L = new PlayerP2L();
-		PlayerL2V L2V = new PlayerL2V();
+
 		TeamV2L tV2L = new TeamV2L();
 		TeamL2P tL2P = new TeamL2P();
-		
 		TeamLineItem tli = tV2L.v2l(tvo);
 		TeamPO tpo = tL2P.l2p(tli);
 		resultpo = pdservice.findByTeam(tpo);
 		for(int i = 0; i<resultpo.size(); i++){
-			resultvo.add(L2V.l2v(P2L.p2l(resultpo.get(i))));
+			PlayerP2L P2L = new PlayerP2L();
+			PlayerL2V L2V = new PlayerL2V();
+			PlayerLineItem tmp = new PlayerLineItem();
+			PlayerVO temp = new PlayerVO();
+			tmp = P2L.p2l(resultpo.get(i));
+			temp = L2V.l2v(tmp);
+			resultvo.add(temp);
 		}
 		
 		return resultvo;

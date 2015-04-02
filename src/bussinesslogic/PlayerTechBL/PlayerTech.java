@@ -52,8 +52,7 @@ public class PlayerTech implements PlayerTechBLservice{
 	public ArrayList<PlayerTechVO> sift(String position, String division,
 			String sift) {
 		// TODO Auto-generated method stub
-		PlayerTechP2L P2L = new PlayerTechP2L();
-		PlayerTechL2V L2V = new PlayerTechL2V();
+
 		PlayerTechV2L V2L = new PlayerTechV2L();
 		PlayerTechL2P L2P = new PlayerTechL2P();
 		ArrayList<PlayerTechPO> resultpo = new ArrayList<PlayerTechPO>();
@@ -66,7 +65,13 @@ public class PlayerTech implements PlayerTechBLservice{
 		}
 		ArrayList<PlayerTechVO> result = new ArrayList<PlayerTechVO>();
 		for(int i = 0; i<50; i++){
-			result.add(L2V.l2v(P2L.p2l(resultpo.get(i))));
+			PlayerTechP2L P2L = new PlayerTechP2L();
+			PlayerTechL2V L2V = new PlayerTechL2V();
+			PlayerTechLineItem tmp = new PlayerTechLineItem();
+			PlayerTechVO temp = new PlayerTechVO();
+			tmp = P2L.p2l(resultpo.get(i));
+			temp = L2V.l2v(tmp);
+			result.add(temp);
 		}
 		return result;
 	}
